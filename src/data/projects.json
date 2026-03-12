@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "NexaCommerce Platform",
+    "description": "A feature-rich e-commerce platform with AI-powered product recommendations, real-time inventory management, and multi-vendor support.",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    "tags": ["React", "Node.js", "MongoDB", "Stripe"],
+    "category": "Web App",
+    "link": "#",
+    "github": "#",
+    "color": "#00f5ff"
+  },
+  {
+    "id": 2,
+    "title": "MediTrack Health Suite",
+    "description": "Comprehensive healthcare management system with appointment booking, telemedicine, and EHR integration for clinics and hospitals.",
+    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
+    "tags": ["Flutter", "Firebase", "Python", "ML"],
+    "category": "Mobile App",
+    "link": "#",
+    "github": "#",
+    "color": "#7b2ff7"
+  },
+  {
+    "id": 3,
+    "title": "FinVault Dashboard",
+    "description": "Real-time fintech analytics dashboard with portfolio tracking, risk assessment, and automated trading signal generation.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    "tags": ["Next.js", "TypeScript", "PostgreSQL", "WebSocket"],
+    "category": "SaaS",
+    "link": "#",
+    "github": "#",
+    "color": "#00f5ff"
+  },
+  {
+    "id": 4,
+    "title": "LogiFlow Supply Chain",
+    "description": "End-to-end logistics and supply chain management system with GPS tracking, predictive analytics, and automated dispatching.",
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80",
+    "tags": ["Vue.js", "Django", "Redis", "Google Maps"],
+    "category": "Enterprise",
+    "link": "#",
+    "github": "#",
+    "color": "#7b2ff7"
+  },
+  {
+    "id": 5,
+    "title": "EduSphere LMS",
+    "description": "Modern learning management system with interactive course builder, live sessions, gamification, and detailed progress analytics.",
+    "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80",
+    "tags": ["React", "Express", "AWS", "Socket.io"],
+    "category": "EdTech",
+    "link": "#",
+    "github": "#",
+    "color": "#00f5ff"
+  },
+  {
+    "id": 6,
+    "title": "PropVision Real Estate",
+    "description": "AI-driven real estate platform with 3D property tours, smart valuation algorithms, and integrated mortgage calculators.",
+    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    "tags": ["React", "Three.js", "Node.js", "AI/ML"],
+    "category": "PropTech",
+    "link": "#",
+    "github": "#",
+    "color": "#7b2ff7"
+  }
+]
