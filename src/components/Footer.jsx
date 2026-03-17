@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import siteConfig from '../data/siteConfig'
 
 const footerLinks = {
   Services: ['Web Development', 'Mobile Apps', 'UI/UX Design', 'Cloud & DevOps', 'AI Integration'],
@@ -25,19 +26,29 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="relative w-8 h-8">
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
-                <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
-                <div className="relative flex items-center justify-center h-full">
-                  <span className="text-space font-black text-sm leading-none">D</span>
-                </div>
+              <div className="relative h-8 flex items-center">
+                {siteConfig.logoUrl ? (
+                  <img
+                    src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
+                    alt={siteConfig.siteName}
+                    className="h-8 w-auto object-contain"
+                  />
+                ) : (
+                  <div className="relative w-8 h-8">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
+                    <div className="relative flex items-center justify-center h-full">
+                      <span className="text-space font-black text-sm leading-none">D</span>
+                    </div>
+                  </div>
+                )}
               </div>
               <span className="font-bold text-xl tracking-tight">
                 Dev<span className="gradient-text">Pokit</span>
               </span>
             </div>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs mb-6">
-              We are a premium software house specializing in building world-class digital products 
+              We are a premium software house specializing in building world class digital products
               that scale, perform, and inspire.
             </p>
             <div className="flex gap-3">
@@ -79,7 +90,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} DevPokit. All rights reserved. Built with ♥ and Three.js.
+            © {new Date().getFullYear()} DevPokit. All rights reserved.
           </p>
           <div className="flex items-center gap-1.5">
             <span className="dot-cyan animate-pulse-slow" />

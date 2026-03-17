@@ -1,8 +1,7 @@
-import { Suspense, useRef } from 'react'
+import { Suspense } from 'react'
 import { motion } from 'framer-motion'
 import HeroScene from './HeroScene'
-
-const techBadges = ['React', 'Flutter', 'Node.js', 'Three.js', 'AWS', 'AI/ML']
+import siteConfig from '../../data/siteConfig'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -18,6 +17,8 @@ const itemVariants = {
 }
 
 export default function HeroSection({ scrollY }) {
+  const { techBadges, stats, description } = siteConfig
+
   return (
     <section
       id="hero"
@@ -80,9 +81,7 @@ export default function HeroSection({ scrollY }) {
               variants={itemVariants}
               className="text-lg sm:text-xl text-white/55 leading-relaxed mb-10 max-w-xl font-light"
             >
-              DevPokit is a premium software house crafting scalable web platforms, 
-              mobile apps, and enterprise solutions — powered by cutting-edge technology 
-              and driven by design excellence.
+              {description}
             </motion.p>
 
             {/* CTAs */}
@@ -109,22 +108,23 @@ export default function HeroSection({ scrollY }) {
           </motion.div>
         </div>
 
-        {/* Stats row */}
+        {/* ── Stats row ─────────────────────────────────────────────────
+            FIX: Changed from `absolute bottom-10` to a standard
+            flex row below the text content.  This removes the overlap
+            between the tech badges and the stats numbers.
+            On desktop the badges + stats are stacked naturally with
+            consistent vertical spacing via `mt-14`.
+            On mobile they stack in a 2×2 grid for breathing room. */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
-          className="absolute bottom-10 left-4 right-4 sm:left-8 sm:right-auto flex gap-8 sm:gap-12"
+          className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl"
         >
-          {[
-            { value: '50+', label: 'Projects Delivered' },
-            { value: '30+', label: 'Happy Clients' },
-            { value: '5+', label: 'Years Experience' },
-            { value: '99%', label: 'Satisfaction Rate' },
-          ].map(({ value, label }) => (
-            <div key={label} className="text-left">
+          {stats.map(({ value, label }) => (
+            <div key={label} className="flex flex-col items-start gap-1">
               <div className="text-2xl sm:text-3xl font-black gradient-text-cyan">{value}</div>
-              <div className="text-xs text-white/40 font-medium mt-0.5">{label}</div>
+              <div className="text-xs text-white/40 font-medium">{label}</div>
             </div>
           ))}
         </motion.div>

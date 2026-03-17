@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import HeroSection from './components/Hero/HeroSection'
 import Services from './components/Services'
@@ -7,20 +8,15 @@ import Team from './components/Team'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ProjectDetail from './pages/ProjectDetail'
 
-function App() {
-  const [scrollY, setScrollY] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
+// ── Home page (single scrollable page) ──────────────────────
+function HomePage({ scrollY }) {
   return (
     <div className="relative bg-space text-white overflow-x-hidden">
       {/* Grid background overlay */}
       <div className="fixed inset-0 grid-bg opacity-100 pointer-events-none z-0" />
+
       {/* Ambient light blobs */}
       <div
         className="fixed top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
@@ -50,6 +46,24 @@ function App() {
 
       <Footer />
     </div>
+  )
+}
+
+// ── Root component with routing ──────────────────────────────
+function App() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage scrollY={scrollY} />} />
+      <Route path="/project/:id" element={<ProjectDetail />} />
+    </Routes>
   )
 }
 

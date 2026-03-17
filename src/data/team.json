@@ -1,55 +1,19 @@
 [
   {
     "id": 1,
-    "name": "Ali Hassan",
-    "role": "CEO & Lead Architect",
-    "bio": "Visionary tech leader with 10+ years building scalable software solutions.",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=AliHassan&backgroundColor=0f0c29",
+    "name": "Ahsan",
+    "role": "Founder and App Developer",
+    "bio": "Expert in building robust mobile applications with Flutter and Dart, backend by scalable MongoDB and PostgreSQL systems.",
+    "avatar": "/src/assets/ahsan.jpeg",
     "linkedin": "https://linkedin.com",
     "github": "https://github.com"
   },
   {
     "id": 2,
-    "name": "Sara Khan",
-    "role": "UI/UX Designer",
-    "bio": "Crafting intuitive user experiences with a keen eye for detail and creativity.",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=SaraKhan&backgroundColor=0f0c29",
-    "linkedin": "https://linkedin.com",
-    "github": "https://github.com"
-  },
-  {
-    "id": 3,
-    "name": "Usman Tariq",
-    "role": "Senior Backend Developer",
-    "bio": "Node.js and cloud infrastructure expert. Loves building rock-solid APIs.",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=UsmanTariq&backgroundColor=0f0c29",
-    "linkedin": "https://linkedin.com",
-    "github": "https://github.com"
-  },
-  {
-    "id": 4,
-    "name": "Fatima Noor",
-    "role": "Mobile Developer",
-    "bio": "Flutter and React Native specialist delivering pixel-perfect cross-platform apps.",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=FatimaNoor&backgroundColor=0f0c29",
-    "linkedin": "https://linkedin.com",
-    "github": "https://github.com"
-  },
-  {
-    "id": 5,
-    "name": "Bilal Ahmed",
-    "role": "DevOps Engineer",
-    "bio": "Orchestrating CI/CD pipelines and cloud infrastructure for zero-downtime deployments.",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=BilalAhmed&backgroundColor=0f0c29",
-    "linkedin": "https://linkedin.com",
-    "github": "https://github.com"
-  },
-  {
-    "id": 6,
-    "name": "Zainab Malik",
-    "role": "AI/ML Engineer",
-    "bio": "Integrating machine learning models into products that think, predict, and adapt.",
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=ZainabMalik&backgroundColor=0f0c29",
+    "name": "Hashim Ali",
+    "role": "Co-founder, CEO and Web Developer",
+    "bio": "Full-stack enthusiast focused on React, Node.js, and Tailwind CSS. Specializes in UI/UX design and automation with n8n.",
+    "avatar": "/src/assets/me1.png",
     "linkedin": "https://linkedin.com",
     "github": "https://github.com"
   }

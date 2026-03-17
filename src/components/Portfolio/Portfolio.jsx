@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import ProjectCard from './ProjectCard'
-import projects from '../../data/projects.json'
+import siteConfig from '../../data/siteConfig'
 
 const categories = ['All', 'Web App', 'Mobile App', 'SaaS', 'Enterprise', 'EdTech', 'PropTech']
 
@@ -10,9 +10,11 @@ export default function Portfolio() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
   const [activeFilter, setActiveFilter] = useState('All')
 
+  const projects = siteConfig.projects
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter(p => p.category === activeFilter)
+
 
   return (
     <section id="portfolio" className="py-28 lg:py-36 relative">
