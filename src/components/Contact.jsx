@@ -3,16 +3,27 @@ import { motion, useInView } from 'framer-motion'
 import emailjs from 'emailjs-com'
 
 // ⚠️ Replace these with your real EmailJS credentials
+<<<<<<< HEAD
 const EMAILJS_SERVICE_ID = 'service_dna003c'
 const EMAILJS_TEMPLATE_ID = 'template_1oj86fw'
 const EMAILJS_PUBLIC_KEY = '5bgHwZk4BKG2TE1AA'
+=======
+const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
 const contactInfo = [
   {
     icon: '✉',
     label: 'Email Us',
+<<<<<<< HEAD
     value: 'devpokit@gmail.com',
     href: 'mailto:devpokit@gmail.com',
+=======
+    value: 'hello@devpokit.com',
+    href: 'mailto:hello@devpokit.com',
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     color: '#00f5ff',
   },
   {
@@ -80,7 +91,14 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-28 lg:py-36 relative overflow-hidden">
+<<<<<<< HEAD
       {/* BG radial (Safe Mode: Hidden) */}
+=======
+      {/* BG radial */}
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(0,245,255,0.06) 0%, transparent 70%)' }}
+      />
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -110,7 +128,11 @@ export default function Contact() {
               transition={{ delay: 0.2 }}
               className="text-lg text-white/50 leading-relaxed mb-10 font-light"
             >
+<<<<<<< HEAD
               Have an idea? A challenge? A vision? We'd love to hear about it.
+=======
+              Have an idea? A challenge? A vision? We'd love to hear about it. 
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
               Drop us a message and our team will get back to you within 24 hours.
             </motion.p>
 
@@ -233,8 +255,13 @@ export default function Contact() {
                     {status === 'loading' ? (
                       <>
                         <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+<<<<<<< HEAD
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+=======
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                         </svg>
                         Sending...
                       </>

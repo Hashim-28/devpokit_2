@@ -6,7 +6,11 @@ const services = [
   {
     icon: '⬡',
     title: 'Web Application Development',
+<<<<<<< HEAD
     description: 'Built to work great on any device, our custom, fast, and responsive websites. We make web solutions that are modern, safe, easy to manage, and can grow with your business.',
+=======
+    description: 'From SaaS platforms to e-commerce ecosystems — we architect performant, scalable web apps with React, Next.js, and Node.js.',
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     tags: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
     gradient: 'from-cyan-500/20 to-cyan-500/0',
     borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
@@ -15,7 +19,11 @@ const services = [
   {
     icon: '◈',
     title: 'Mobile App Development',
+<<<<<<< HEAD
     description: 'Native and cross-platform mobile apps that work well and provide a smooth user experience. We make your ideas into products that people love to use.',
+=======
+    description: 'Cross-platform mobile experiences built with Flutter and React Native — pixel-perfect on iOS and Android from a single codebase.',
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     tags: ['Flutter', 'React Native', 'Firebase', 'Swift'],
     gradient: 'from-purple-600/20 to-purple-600/0',
     borderGlow: 'hover:border-purple-400/30 hover:shadow-glow-purple',
@@ -24,13 +32,18 @@ const services = [
   {
     icon: '◎',
     title: 'UI/UX Design & Prototyping',
+<<<<<<< HEAD
     description: 'Interfaces that are clean, easy to understand, and focused on conversions make digital products easy and fun to use. We create experiences that look high-end and feel natural.',
+=======
+    description: 'Premium product design rooted in research and human psychology. We deliver stunning Figma prototypes and design systems.',
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     tags: ['Figma', 'Design Systems', 'Prototyping', 'Branding'],
     gradient: 'from-cyan-500/20 to-cyan-500/0',
     borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
     iconColor: 'text-cyan-400',
   },
   {
+<<<<<<< HEAD
     icon: '◉',
     title: 'AI Agent Development',
     description: 'Smart agents powered by AI that do tasks automatically, make workflows better, and increase productivity. We design smart systems that meet the needs of your business.',
@@ -38,11 +51,24 @@ const services = [
     gradient: 'from-cyan-500/20 to-cyan-500/0',
     borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
     iconColor: 'text-cyan-400',
+=======
+    icon: '⬭',
+    title: 'Cloud & DevOps Engineering',
+    description: 'CI/CD pipelines, Kubernetes clusters, and multi-region AWS/GCP infrastructure — zero-downtime deployments guaranteed.',
+    tags: ['AWS', 'Docker', 'Kubernetes', 'Terraform'],
+    gradient: 'from-purple-600/20 to-purple-600/0',
+    borderGlow: 'hover:border-purple-400/30 hover:shadow-glow-purple',
+    iconColor: 'text-purple-400',
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
   },
   {
     icon: '◉',
     title: 'AI & Machine Learning Integration',
+<<<<<<< HEAD
     description: 'Embed intelligent features into your products recommendation engines, NLP chatbots, computer vision, and predictive analytics.',
+=======
+    description: 'Embed intelligent features into your products — recommendation engines, NLP chatbots, computer vision, and predictive analytics.',
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     tags: ['Python', 'TensorFlow', 'OpenAI', 'LangChain'],
     gradient: 'from-cyan-500/20 to-cyan-500/0',
     borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
@@ -50,8 +76,13 @@ const services = [
   },
   {
     icon: '⬡',
+<<<<<<< HEAD
     title: 'API Integration',
     description: 'RESTful and GraphQL APIs built to enterprise standards, plus seamless third party integrations with Stripe, Twilio, and more.',
+=======
+    title: 'API Development & Integration',
+    description: 'RESTful and GraphQL APIs built to enterprise standards, plus seamless third-party integrations with Stripe, Twilio, and more.',
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     tags: ['REST', 'GraphQL', 'Stripe', 'Webhooks'],
     gradient: 'from-purple-600/20 to-purple-600/0',
     borderGlow: 'hover:border-purple-400/30 hover:shadow-glow-purple',
@@ -138,7 +169,11 @@ export default function Services() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-white/50 max-w-2xl mx-auto font-light"
           >
+<<<<<<< HEAD
             From idea to deployment and beyond — every solution is crafted with
+=======
+            From idea to deployment and beyond — every solution is crafted with 
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
             precision engineering and a relentless focus on user experience.
           </motion.p>
         </div>

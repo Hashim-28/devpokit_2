@@ -1,6 +1,10 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
+=======
+import { motion, AnimatePresence } from 'framer-motion'
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 import siteConfig from '../data/siteConfig'
 
 export default function ProjectDetail() {
@@ -9,12 +13,15 @@ export default function ProjectDetail() {
   const project = siteConfig.projects.find(p => String(p.id) === String(id))
 
   const [activeImg, setActiveImg] = useState(0)
+<<<<<<< HEAD
   const [scrolled, setScrolled] = useState(false)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50)
   })
+=======
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
   // Scroll to top on mount
   useEffect(() => {
@@ -23,7 +30,11 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
+<<<<<<< HEAD
       <div className="min-h-screen flex flex-col items-center justify-center text-white gap-6">
+=======
+      <div className="min-h-screen bg-space flex flex-col items-center justify-center text-white gap-6">
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
         <p className="text-white/50 text-lg">Project not found.</p>
         <Link to="/" className="btn-secondary">← Back to Home</Link>
       </div>
@@ -33,20 +44,32 @@ export default function ProjectDetail() {
   const images = project.images || [project.image]
 
   return (
+<<<<<<< HEAD
     <div className="min-h-screen text-white overflow-x-hidden relative pt-16 md:pt-20">
       {/* Background grid removed for global App grid */}
+=======
+    <div className="min-h-screen bg-space text-white overflow-x-hidden relative">
+      {/* Background grid */}
+      <div className="fixed inset-0 grid-bg opacity-100 pointer-events-none z-0" />
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
       {/* Ambient glow */}
       <div
         className="fixed top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
         style={{ background: `radial-gradient(ellipse, ${project.color}18 0%, transparent 70%)` }}
       />
 
+<<<<<<< HEAD
       {/* ── Fixed top bar ── */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
         ? 'backdrop-blur-xl bg-space/80 border-b border-white/[0.06] shadow-[0_4px_32px_rgba(0,0,0,0.4)]'
         : 'bg-transparent'
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+=======
+      {/* ── Sticky top bar ── */}
+      <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-space/80 border-b border-white/[0.06]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
           {/* Back button */}
           <button
             onClick={() => navigate(-1)}
@@ -58,6 +81,7 @@ export default function ProjectDetail() {
             Back
           </button>
 
+<<<<<<< HEAD
           {/* Logo - Matching Home Navbar */}
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="relative h-8 flex items-center">
@@ -80,6 +104,18 @@ export default function ProjectDetail() {
             <span className="font-bold text-lg sm:text-xl tracking-tight block">
               Dev<span className="gradient-text">Pokit</span>
             </span>
+=======
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-7 h-7">
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
+              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
+              <div className="relative flex items-center justify-center h-full">
+                <span className="text-space font-black text-xs leading-none select-none">D</span>
+              </div>
+            </div>
+            <span className="font-bold text-lg tracking-tight">Dev<span className="gradient-text">Pokit</span></span>
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
           </Link>
 
           {/* Live URL button */}
@@ -165,8 +201,13 @@ export default function ProjectDetail() {
                     key={i}
                     onClick={() => setActiveImg(i)}
                     className={`relative rounded-xl overflow-hidden w-24 h-16 transition-all duration-200 ${activeImg === i
+<<<<<<< HEAD
                       ? 'ring-2 opacity-100'
                       : 'ring-0 opacity-50 hover:opacity-75'
+=======
+                        ? 'ring-2 opacity-100'
+                        : 'ring-0 opacity-50 hover:opacity-75'
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                       }`}
                     style={activeImg === i ? { ringColor: project.color, boxShadow: `0 0 0 2px ${project.color}` } : {}}
                   >

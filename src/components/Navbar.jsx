@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react'
+<<<<<<< HEAD
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+=======
+import { motion, AnimatePresence } from 'framer-motion'
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 import siteConfig from '../data/siteConfig'
 
 const navLinks = [
   { label: 'Home', href: '#hero' },
   { label: 'Services', href: '#services' },
+<<<<<<< HEAD
   { label: 'About', href: '#about' },
+=======
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
   { label: 'Work', href: '#portfolio' },
   { label: 'Team', href: '#team' },
   { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ]
 
+<<<<<<< HEAD
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [active, setActive] = useState('hero')
@@ -57,6 +65,23 @@ export default function Navbar() {
   useEffect(() => {
     if (location.pathname !== '/') return
 
+=======
+export default function Navbar({ scrollY }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [active, setActive] = useState('hero')
+
+  const scrolled = scrollY > 50
+
+  const handleNav = (e, href) => {
+    e.preventDefault()
+    const id = href.replace('#', '')
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    setIsOpen(false)
+  }
+
+  useEffect(() => {
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     const sections = navLinks.map(l => l.href.replace('#', ''))
     const observer = new IntersectionObserver(
       (entries) => {
@@ -71,7 +96,11 @@ export default function Navbar() {
       if (el) observer.observe(el)
     })
     return () => observer.disconnect()
+<<<<<<< HEAD
   }, [location])
+=======
+  }, [])
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
   return (
     <>
@@ -87,20 +116,31 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
+<<<<<<< HEAD
             <Link 
               to="/#hero" 
               onClick={(e) => handleNav(e, '#hero')} 
               className="flex items-center gap-2.5 group"
             >
+=======
+            <a href="#hero" onClick={(e) => handleNav(e, '#hero')} className="flex items-center gap-2.5 group">
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
               <div className="relative h-8 flex items-center">
                 {siteConfig.logoUrl ? (
                   <img
                     src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                     alt={siteConfig.siteName}
+<<<<<<< HEAD
                     className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
                   />
                 ) : (
                   <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
+=======
+                    className="h-8 w-auto object-contain"
+                  />
+                ) : (
+                  <div className="relative w-8 h-8">
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                     <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
                     <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
                     <div className="relative flex items-center justify-center h-full">
@@ -109,24 +149,43 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
+<<<<<<< HEAD
               <span className="font-bold text-lg sm:text-xl tracking-tight block">
                 Dev<span className="gradient-text">Pokit</span>
               </span>
             </Link>
+=======
+              <span className="font-bold text-xl tracking-tight hidden sm:block">
+                Dev<span className="gradient-text">Pokit</span>
+              </span>
+            </a>
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-1">
               {navLinks.map(({ label, href }) => (
+<<<<<<< HEAD
                 <Link
                   key={href}
                   to={`/${href}`}
                   onClick={(e) => handleNav(e, href)}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg group ${active === href.replace('#', '') && location.pathname === '/'
+=======
+                <a
+                  key={href}
+                  href={href}
+                  onClick={(e) => handleNav(e, href)}
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg group ${active === href.replace('#', '')
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                     ? 'text-cyan-400'
                     : 'text-white/60 hover:text-white'
                     }`}
                 >
+<<<<<<< HEAD
                   {active === href.replace('#', '') && location.pathname === '/' && (
+=======
+                  {active === href.replace('#', '') && (
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                     <motion.span
                       layoutId="nav-active"
                       className="absolute inset-0 rounded-lg"
@@ -135,19 +194,32 @@ export default function Navbar() {
                     />
                   )}
                   <span className="relative z-10">{label}</span>
+<<<<<<< HEAD
                 </Link>
+=======
+                </a>
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
               ))}
             </nav>
 
             {/* CTA */}
             <div className="hidden md:flex items-center gap-3">
+<<<<<<< HEAD
               <Link
                 to="/#contact"
+=======
+              <a
+                href="#contact"
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                 onClick={(e) => handleNav(e, '#contact')}
                 className="btn-primary text-xs py-2.5 px-5"
               >
                 <span className="relative z-10">Get a Quote →</span>
+<<<<<<< HEAD
               </Link>
+=======
+              </a>
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
             </div>
 
             {/* Mobile toggle */}
@@ -185,25 +257,44 @@ export default function Navbar() {
           >
             <nav className="flex flex-col gap-1">
               {navLinks.map(({ label, href }) => (
+<<<<<<< HEAD
                 <Link
                   key={href}
                   to={`/${href}`}
                   onClick={(e) => handleNav(e, href)}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${active === href.replace('#', '') && location.pathname === '/'
+=======
+                <a
+                  key={href}
+                  href={href}
+                  onClick={(e) => handleNav(e, href)}
+                  className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${active === href.replace('#', '')
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                     ? 'text-cyan-400 bg-cyan-400/10 border border-cyan-400/20'
                     : 'text-white/70 hover:text-white hover:bg-white/5'
                     }`}
                 >
                   {label}
+<<<<<<< HEAD
                 </Link>
               ))}
               <Link
                 to="/#contact"
+=======
+                </a>
+              ))}
+              <a
+                href="#contact"
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                 onClick={(e) => handleNav(e, '#contact')}
                 className="btn-primary text-center mt-2"
               >
                 <span className="relative z-10">Get a Quote →</span>
+<<<<<<< HEAD
               </Link>
+=======
+              </a>
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
             </nav>
           </motion.div>
         )}

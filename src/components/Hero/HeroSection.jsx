@@ -1,5 +1,9 @@
 import { Suspense } from 'react'
+<<<<<<< HEAD
 import { motion, useScroll, useTransform } from 'framer-motion'
+=======
+import { motion } from 'framer-motion'
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 import HeroScene from './HeroScene'
 import siteConfig from '../../data/siteConfig'
 
@@ -16,28 +20,44 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
 }
 
+<<<<<<< HEAD
 export default function HeroSection() {
   const { techBadges, stats, description } = siteConfig
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 150])
+=======
+export default function HeroSection({ scrollY }) {
+  const { techBadges, stats, description } = siteConfig
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden pt-20"
     >
+<<<<<<< HEAD
       {/* Safe Mode: Static background instead of 3D Canvas */}
       <div className="absolute inset-0 z-0 bg-hero-gradient opacity-60 pointer-events-none" />
       {/* 
       <motion.div
         className="absolute inset-0 z-0"
         style={{ y }}
+=======
+      {/* 3D Canvas — right side / background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
       >
         <Suspense fallback={null}>
           <HeroScene />
         </Suspense>
+<<<<<<< HEAD
       </motion.div>
       */}
+=======
+      </div>
+>>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
       {/* Dark vignette on left for text readability */}
       <div className="absolute inset-0 z-10 pointer-events-none"
