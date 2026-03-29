@@ -18,11 +18,7 @@ function FloatingOrb() {
 
   return (
     <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.8}>
-<<<<<<< HEAD
       <Sphere ref={meshRef} args={[1.8, 64, 64]}>
-=======
-      <Sphere ref={meshRef} args={[1.8, 128, 128]}>
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
         <MeshDistortMaterial
           color="#00f5ff"
           attach="material"
@@ -57,11 +53,7 @@ function PurpleOrb() {
   return (
     <Float speed={2} rotationIntensity={0.6} floatIntensity={1.2}>
       <mesh ref={meshRef} position={[3.2, -0.8, -1]}>
-<<<<<<< HEAD
         <sphereGeometry args={[0.9, 32, 32]} />
-=======
-        <sphereGeometry args={[0.9, 64, 64]} />
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
         <MeshDistortMaterial
           color="#7b2ff7"
           distort={0.6}
@@ -108,11 +100,7 @@ function GridRing() {
   })
 
   const geometry = useMemo(() => {
-<<<<<<< HEAD
     const g = new THREE.TorusGeometry(3.5, 0.01, 8, 64)
-=======
-    const g = new THREE.TorusGeometry(3.5, 0.01, 8, 120)
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
     return g
   }, [])
 
@@ -131,22 +119,14 @@ function OuterRing() {
 
   return (
     <mesh ref={ref} rotation={[-Math.PI / 4, 0.5, 0]}>
-<<<<<<< HEAD
       <torusGeometry args={[4.5, 0.008, 8, 64]} />
-=======
-      <torusGeometry args={[4.5, 0.008, 8, 120]} />
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
       <meshBasicMaterial color="#7b2ff7" transparent opacity={0.12} />
     </mesh>
   )
 }
 
 function Particles() {
-<<<<<<< HEAD
   const count = 100
-=======
-  const count = 300
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3)
     for (let i = 0; i < count; i++) {
@@ -188,11 +168,7 @@ export default function HeroScene() {
     <Canvas
       camera={{ position: [0, 0, 6], fov: 55 }}
       gl={{ antialias: true, alpha: true }}
-<<<<<<< HEAD
       dpr={[1, 1.5]}
-=======
-      dpr={[1, 2]}
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
       style={{ background: 'transparent' }}
     >
       <ambientLight intensity={0.2} />
@@ -203,11 +179,7 @@ export default function HeroScene() {
       <Stars
         radius={100}
         depth={50}
-<<<<<<< HEAD
         count={1000}
-=======
-        count={3000}
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
         factor={3}
         saturation={0}
         fade

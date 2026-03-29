@@ -1,140 +1,18 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-
-const services = [
-  {
-    icon: '⬡',
-    title: 'Web Application Development',
-<<<<<<< HEAD
-    description: 'Built to work great on any device, our custom, fast, and responsive websites. We make web solutions that are modern, safe, easy to manage, and can grow with your business.',
-=======
-    description: 'From SaaS platforms to e-commerce ecosystems — we architect performant, scalable web apps with React, Next.js, and Node.js.',
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-    tags: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
-    gradient: 'from-cyan-500/20 to-cyan-500/0',
-    borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
-    iconColor: 'text-cyan-400',
-  },
-  {
-    icon: '◈',
-    title: 'Mobile App Development',
-<<<<<<< HEAD
-    description: 'Native and cross-platform mobile apps that work well and provide a smooth user experience. We make your ideas into products that people love to use.',
-=======
-    description: 'Cross-platform mobile experiences built with Flutter and React Native — pixel-perfect on iOS and Android from a single codebase.',
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-    tags: ['Flutter', 'React Native', 'Firebase', 'Swift'],
-    gradient: 'from-purple-600/20 to-purple-600/0',
-    borderGlow: 'hover:border-purple-400/30 hover:shadow-glow-purple',
-    iconColor: 'text-purple-400',
-  },
-  {
-    icon: '◎',
-    title: 'UI/UX Design & Prototyping',
-<<<<<<< HEAD
-    description: 'Interfaces that are clean, easy to understand, and focused on conversions make digital products easy and fun to use. We create experiences that look high-end and feel natural.',
-=======
-    description: 'Premium product design rooted in research and human psychology. We deliver stunning Figma prototypes and design systems.',
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-    tags: ['Figma', 'Design Systems', 'Prototyping', 'Branding'],
-    gradient: 'from-cyan-500/20 to-cyan-500/0',
-    borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
-    iconColor: 'text-cyan-400',
-  },
-  {
-<<<<<<< HEAD
-    icon: '◉',
-    title: 'AI Agent Development',
-    description: 'Smart agents powered by AI that do tasks automatically, make workflows better, and increase productivity. We design smart systems that meet the needs of your business.',
-    tags: ['Python', 'N8N', 'OpenAI',],
-    gradient: 'from-cyan-500/20 to-cyan-500/0',
-    borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
-    iconColor: 'text-cyan-400',
-=======
-    icon: '⬭',
-    title: 'Cloud & DevOps Engineering',
-    description: 'CI/CD pipelines, Kubernetes clusters, and multi-region AWS/GCP infrastructure — zero-downtime deployments guaranteed.',
-    tags: ['AWS', 'Docker', 'Kubernetes', 'Terraform'],
-    gradient: 'from-purple-600/20 to-purple-600/0',
-    borderGlow: 'hover:border-purple-400/30 hover:shadow-glow-purple',
-    iconColor: 'text-purple-400',
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-  },
-  {
-    icon: '◉',
-    title: 'AI & Machine Learning Integration',
-<<<<<<< HEAD
-    description: 'Embed intelligent features into your products recommendation engines, NLP chatbots, computer vision, and predictive analytics.',
-=======
-    description: 'Embed intelligent features into your products — recommendation engines, NLP chatbots, computer vision, and predictive analytics.',
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-    tags: ['Python', 'TensorFlow', 'OpenAI', 'LangChain'],
-    gradient: 'from-cyan-500/20 to-cyan-500/0',
-    borderGlow: 'hover:border-cyan-400/30 hover:shadow-glow-cyan',
-    iconColor: 'text-cyan-400',
-  },
-  {
-    icon: '⬡',
-<<<<<<< HEAD
-    title: 'API Integration',
-    description: 'RESTful and GraphQL APIs built to enterprise standards, plus seamless third party integrations with Stripe, Twilio, and more.',
-=======
-    title: 'API Development & Integration',
-    description: 'RESTful and GraphQL APIs built to enterprise standards, plus seamless third-party integrations with Stripe, Twilio, and more.',
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-    tags: ['REST', 'GraphQL', 'Stripe', 'Webhooks'],
-    gradient: 'from-purple-600/20 to-purple-600/0',
-    borderGlow: 'hover:border-purple-400/30 hover:shadow-glow-purple',
-    iconColor: 'text-purple-400',
-  },
-]
+import { motion, useInView } from 'framer-motion'
+import siteConfig from '../data/siteConfig'
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.08, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
   }),
-}
-
-function ServiceCard({ service, index }) {
-  return (
-    <motion.div
-      custom={index}
-      variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
-      className={`glass-card p-7 group cursor-default transition-all duration-400 relative overflow-hidden border border-white/[0.08] ${service.borderGlow}`}
-    >
-      {/* Gradient bg on hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`} />
-
-      <div className="relative z-10">
-        <div className={`text-3xl mb-5 ${service.iconColor} transition-transform duration-300 group-hover:scale-110 inline-block`}>
-          {service.icon}
-        </div>
-        <h3 className="text-lg font-bold text-white mb-3 group-hover:text-white transition-colors">
-          {service.title}
-        </h3>
-        <p className="text-sm text-white/50 leading-relaxed mb-5 group-hover:text-white/70 transition-colors">
-          {service.description}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {service.tags.map(tag => (
-            <span
-              key={tag}
-              className="px-2.5 py-1 rounded-full text-xs font-medium bg-white/[0.06] text-white/50 border border-white/[0.06] group-hover:border-white/15 group-hover:text-white/70 transition-all"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-    </motion.div>
-  )
 }
 
 export default function Services() {
@@ -142,26 +20,33 @@ export default function Services() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="services" className="py-28 lg:py-36 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <div ref={ref} className="text-center mb-16">
+    <section id="services" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Background accents */}
+      <div
+        className="absolute top-1/4 right-0 w-96 h-96 rounded-full blur-[120px] pointer-events-none opacity-20"
+        style={{ background: 'radial-gradient(circle, #00f5ff 0%, transparent 70%)' }}
+      />
+      <div
+        className="absolute bottom-1/4 left-0 w-96 h-96 rounded-full blur-[120px] pointer-events-none opacity-10"
+        style={{ background: 'radial-gradient(circle, #7b2ff7 0%, transparent 70%)' }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16 lg:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
           >
-            <span className="section-badge">What We Do</span>
+            <span className="section-badge">Our Expertise</span>
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-5"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6"
           >
-            End-to-End
-            <br />
-            <span className="gradient-text">Software Services</span>
+            Specialized in <span className="gradient-text">Modern</span> Solutions.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -169,21 +54,97 @@ export default function Services() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-white/50 max-w-2xl mx-auto font-light"
           >
-<<<<<<< HEAD
-            From idea to deployment and beyond — every solution is crafted with
-=======
-            From idea to deployment and beyond — every solution is crafted with 
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-            precision engineering and a relentless focus on user experience.
+            We leverage cutting-edge technologies to build scalable, high-performance digital products that drive growth and innovation.
           </motion.p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {services.map((service, i) => (
-            <ServiceCard key={service.title} service={service} index={i} />
+        <div
+          ref={ref}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+        >
+          {siteConfig.services.map((service, i) => (
+            <motion.div
+              key={service.title}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              animate={inView ? 'visible' : 'hidden'}
+              className="glass-card-hover p-8 group relative overflow-hidden"
+            >
+              {/* Card background gradient on hover */}
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                style={{
+                  background: `radial-gradient(circle at 50% 0%, ${service.color}, transparent 70%)`,
+                }}
+              />
+
+              <div
+                className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                style={{
+                  background: `${service.color}12`,
+                  border: `1px solid ${service.color}25`,
+                }}
+              >
+                <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
+                  {service.icon}
+                </span>
+              </div>
+
+              <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-white/50 text-sm leading-relaxed font-light group-hover:text-white/70 transition-colors">
+                {service.description}
+              </p>
+
+              {/* Bottom accent bar */}
+              <div
+                className="absolute bottom-0 left-0 h-1 bg-gradient-to-r transition-all duration-500 w-0 group-hover:w-full"
+                style={{
+                  backgroundImage: `linear-gradient(to right, ${service.color}, #7b2ff7)`,
+                  boxShadow: `0 0 15px ${service.color}80`,
+                }}
+              />
+            </motion.div>
           ))}
         </div>
+
+        {/* ── Capabilities/Tech row ──────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-24 lg:mt-32 p-8 lg:p-12 glass-card border-cyan-400/10 relative overflow-hidden group"
+        >
+          {/* Subtle bg glow */}
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-400/5 blur-[80px] rounded-full group-hover:bg-cyan-400/10 transition-colors" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+            <div className="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
+              <h3 className="text-2xl font-bold mb-3">Our Core Stack</h3>
+              <p className="text-sm text-white/40 leading-relaxed">
+                We use the best tools for the job, ensuring performance, maintainability, and security at every level.
+              </p>
+            </div>
+
+            <div className="lg:col-span-2 flex flex-wrap gap-8 justify-center lg:justify-start">
+              {[
+                { label: 'Frontend', techs: 'React, Next.js, Framer Motion' },
+                { label: 'Mobile', techs: 'Flutter, React Native, Swift' },
+                { label: 'Backend', techs: 'Node.js, Python, PostgreSQL, MongoDB' },
+                { label: 'Cloud', techs: 'AWS, Docker, Kubernetes, Vercel' },
+              ].map((group) => (
+                <div key={group.label} className="flex flex-col gap-1.5">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-cyan-400 font-bold">
+                    {group.label}
+                  </span>
+                  <span className="text-sm text-white/80 font-medium">{group.techs}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

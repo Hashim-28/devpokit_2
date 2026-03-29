@@ -1,391 +1,266 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-<<<<<<< HEAD
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion'
-=======
-import { motion, AnimatePresence } from 'framer-motion'
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
+import { useState, useEffect } from 'react'
 import siteConfig from '../data/siteConfig'
+import Footer from '../components/Footer'
 
 export default function ProjectDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const project = siteConfig.projects.find(p => String(p.id) === String(id))
-
-  const [activeImg, setActiveImg] = useState(0)
-<<<<<<< HEAD
   const [scrolled, setScrolled] = useState(false)
   const { scrollY } = useScroll()
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50)
   })
-=======
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 
-  // Scroll to top on mount
+  // Find project in the portfolio list
+  const project = siteConfig.portfolio.find(p => p.id === parseInt(id))
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [id])
 
-  if (!project) {
-    return (
-<<<<<<< HEAD
-      <div className="min-h-screen flex flex-col items-center justify-center text-white gap-6">
-=======
-      <div className="min-h-screen bg-space flex flex-col items-center justify-center text-white gap-6">
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-        <p className="text-white/50 text-lg">Project not found.</p>
-        <Link to="/" className="btn-secondary">← Back to Home</Link>
-      </div>
-    )
-  }
-
-  const images = project.images || [project.image]
+  if (!project) return (
+    <div className="min-h-screen flex flex-col items-center justify-center text-center px-4">
+      <h1 className="text-4xl font-bold mb-4">Project not found</h1>
+      <Link to="/" className="btn-primary">Back to Home</Link>
+    </div>
+  )
 
   return (
-<<<<<<< HEAD
-    <div className="min-h-screen text-white overflow-x-hidden relative pt-16 md:pt-20">
-      {/* Background grid removed for global App grid */}
-=======
-    <div className="min-h-screen bg-space text-white overflow-x-hidden relative">
-      {/* Background grid */}
-      <div className="fixed inset-0 grid-bg opacity-100 pointer-events-none z-0" />
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-      {/* Ambient glow */}
-      <div
-        className="fixed top-0 right-0 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
-        style={{ background: `radial-gradient(ellipse, ${project.color}18 0%, transparent 70%)` }}
-      />
-
-<<<<<<< HEAD
-      {/* ── Fixed top bar ── */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-        ? 'backdrop-blur-xl bg-space/80 border-b border-white/[0.06] shadow-[0_4px_32px_rgba(0,0,0,0.4)]'
-        : 'bg-transparent'
-        }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
-=======
-      {/* ── Sticky top bar ── */}
-      <header className="sticky top-0 z-50 w-full backdrop-blur-xl bg-space/80 border-b border-white/[0.06]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-          {/* Back button */}
-          <button
-            onClick={() => navigate(-1)}
-            className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back
-          </button>
-
-<<<<<<< HEAD
-          {/* Logo - Matching Home Navbar */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="relative h-8 flex items-center">
-              {siteConfig.logoUrl ? (
-                <img
-                  src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
-                  alt={siteConfig.siteName}
-                  className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
-                />
-              ) : (
-                <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
-                  <div className="relative flex items-center justify-center h-full">
-                    <span className="text-space font-black text-sm leading-none select-none">D</span>
+    <div className="min-h-screen bg-transparent">
+      {/* ── Navigation ──────────────────────────────────────────────────
+          We use a custom Nav here that mirrors the main Navbar but 
+          allows transparent behavior for the detail view. */}
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'backdrop-blur-xl bg-space/80 border-b border-white/[0.06]' : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            <Link to="/" className="flex items-center gap-2.5 group">
+              <div className="relative h-8 flex items-center">
+                {siteConfig.logoUrl ? (
+                  <img
+                    src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
+                    alt={siteConfig.siteName}
+                    className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
+                    <div className="relative flex items-center justify-center h-full">
+                      <span className="text-space font-black text-sm leading-none">D</span>
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-            <span className="font-bold text-lg sm:text-xl tracking-tight block">
-              Dev<span className="gradient-text">Pokit</span>
-            </span>
-=======
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="relative w-7 h-7">
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
-              <div className="relative flex items-center justify-center h-full">
-                <span className="text-space font-black text-xs leading-none select-none">D</span>
+                )}
               </div>
-            </div>
-            <span className="font-bold text-lg tracking-tight">Dev<span className="gradient-text">Pokit</span></span>
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-          </Link>
+              <span className="font-bold text-lg sm:text-xl tracking-tight block">
+                Dev<span className="gradient-text">Pokit</span>
+              </span>
+            </Link>
 
-          {/* Live URL button */}
-          {project.liveUrl && project.liveUrl !== '#' ? (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-xs py-2 px-4"
+            <Link
+              to="/"
+              className="px-5 py-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all text-sm font-medium"
             >
-              <span className="relative z-10">Live Site →</span>
-            </a>
-          ) : (
-            <div className="w-24" />
-          )}
+              ← Back to Home
+            </Link>
+          </div>
         </div>
-      </header>
+      </motion.header>
 
-      {/* ── Main content ── */}
-      <main className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-
-        {/* Category badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
-          <span
-            className="section-badge"
-            style={{ color: project.color, borderColor: `${project.color}40`, background: `${project.color}12` }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: project.color }} />
-            {project.category}
-          </span>
-        </motion.div>
-
-        {/* Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6 leading-[1.1]"
-        >
-          {project.title}
-        </motion.h1>
-
-        {/* Two-column layout on large screens */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 mt-4">
-
-          {/* Left: images + description */}
-          <div className="space-y-8">
-            {/* Main image */}
+      <main className="pt-32 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
             <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="relative rounded-2xl overflow-hidden aspect-[16/9] glass-card"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={activeImg}
-                  src={images[activeImg]}
-                  alt={`${project.title} screenshot ${activeImg + 1}`}
-                  className="w-full h-full object-cover"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.35 }}
-                />
-              </AnimatePresence>
-              {/* Image overlay gradient */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{ boxShadow: `inset 0 0 0 1px ${project.color}25` }}
-              />
-            </motion.div>
-
-            {/* Thumbnail strip */}
-            {images.length > 1 && (
-              <div className="flex gap-3 flex-wrap">
-                {images.map((img, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setActiveImg(i)}
-                    className={`relative rounded-xl overflow-hidden w-24 h-16 transition-all duration-200 ${activeImg === i
-<<<<<<< HEAD
-                      ? 'ring-2 opacity-100'
-                      : 'ring-0 opacity-50 hover:opacity-75'
-=======
-                        ? 'ring-2 opacity-100'
-                        : 'ring-0 opacity-50 hover:opacity-75'
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
-                      }`}
-                    style={activeImg === i ? { ringColor: project.color, boxShadow: `0 0 0 2px ${project.color}` } : {}}
-                  >
-                    <img src={img} alt={`thumbnail ${i + 1}`} className="w-full h-full object-cover" />
-                  </button>
-                ))}
+              <div className="flex items-center gap-3 mb-6">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 uppercase tracking-widest">
+                  {project.category}
+                </span>
+                <span className="text-white/20">•</span>
+                <span className="text-xs font-medium text-white/40 tracking-wider">PROJECT DETAIL</span>
               </div>
-            )}
-
-            {/* Detailed description */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="glass-card p-8 space-y-4"
-            >
-              <h2 className="text-xl font-bold text-white">About this project</h2>
-              <p className="text-white/70 leading-relaxed text-base">
-                {project.detailedDescription || project.description}
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
+                {project.title.split(' ').map((word, i) => (
+                  <span key={i} className={i % 2 === 1 ? 'gradient-text' : ''}>
+                    {word}{' '}
+                  </span>
+                ))}
+              </h1>
+              <p className="text-xl text-white/50 font-light leading-relaxed max-w-xl">
+                {project.longDescription || project.description}
               </p>
             </motion.div>
-          </div>
 
-          {/* Right sidebar: tech stack + CTA */}
-          <div className="space-y-6">
-            {/* Tech Stack card */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="glass-card p-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-wrap gap-8 py-8 border-t border-white/[0.06]"
             >
-              <h3 className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-4">Tech Stack</h3>
-              <div className="flex flex-wrap gap-2">
-                {(project.techStack || project.tags).map(tech => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1.5 rounded-full text-xs font-semibold border"
-                    style={{
-                      color: project.color,
-                      borderColor: `${project.color}40`,
-                      background: `${project.color}10`,
-                    }}
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div>
+                <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-2">Duration</p>
+                <p className="font-semibold text-white/80">3 Months</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-2">Service</p>
+                <p className="font-semibold text-white/80">{project.category}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mb-2">Role</p>
+                <p className="font-semibold text-white/80">Full Service</p>
               </div>
             </motion.div>
-
-            {/* Tags card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="glass-card p-6"
-            >
-              <h3 className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-4">Keywords</h3>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 rounded-full text-xs font-medium bg-white/[0.06] text-white/60 border border-white/10"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* CTA buttons */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="glass-card p-6 space-y-3"
-            >
-              <h3 className="text-sm font-semibold text-white/40 uppercase tracking-widest mb-4">Links</h3>
-
-              {project.liveUrl && project.liveUrl !== '#' ? (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary w-full text-center block"
-                >
-                  <span className="relative z-10">🚀 Visit Live Site →</span>
-                </a>
-              ) : (
-                <div
-                  className="w-full text-center py-4 rounded-xl text-sm font-semibold text-white/30 border border-white/10 cursor-not-allowed"
-                >
-                  Live URL Coming Soon
-                </div>
-              )}
-
-              {project.github && project.github !== '#' ? (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary w-full text-center block"
-                >
-                  View on GitHub
-                </a>
-              ) : (
-                <div className="w-full text-center py-4 rounded-xl text-sm font-semibold text-white/30 border border-white/10 cursor-not-allowed">
-                  Private Repository
-                </div>
-              )}
-            </motion.div>
-
-            {/* Interested? */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="glass-card p-6 text-center"
-              style={{ border: `1px solid ${project.color}25` }}
-            >
-              <p className="text-white/50 text-sm mb-4">Interested in a similar project?</p>
-              <Link
-                to="/#contact"
-                onClick={() => {
-                  // navigate to home then scroll to contact
-                  setTimeout(() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                  }, 300)
-                }}
-                className="btn-primary w-full text-center block"
-              >
-                <span className="relative z-10">Start a Project →</span>
-              </Link>
-            </motion.div>
           </div>
-        </div>
 
-        {/* Other projects */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.35 }}
-          className="mt-20"
-        >
-          <h2 className="text-2xl font-bold mb-6">More Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {siteConfig.projects
-              .filter(p => p.id !== project.id)
-              .slice(0, 3)
-              .map(p => (
-                <Link
-                  key={p.id}
-                  to={`/project/${p.id}`}
-                  className="glass-card overflow-hidden rounded-2xl group hover:border-white/20 transition-all duration-300"
-                  onClick={() => window.scrollTo(0, 0)}
-                >
-                  <div className="aspect-[16/9] overflow-hidden">
+          {/* Hero Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="relative aspect-video rounded-3xl overflow-hidden glass-card mb-24 group"
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-space/80 via-transparent to-transparent opacity-60 pointer-events-none" />
+          </motion.div>
+
+          {/* Details Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-24">
+            <div className="lg:col-span-2 space-y-12">
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                  <span className="w-8 h-px bg-cyan-400" />
+                  The Challenge
+                </h2>
+                <p className="text-lg text-white/60 leading-relaxed font-light">
+                  {project.challenge || "We were tasked with redefining the digital presence for this brand. The goal was to create a high-performance platform that not only showcases their unique value proposition but also provides a seamless user journey across all devices. We focused on speed, accessibility, and a modern aesthetic that aligns with current industry standards while pushing the boundaries of traditional web design."}
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
+                  <span className="w-8 h-px bg-cyan-400" />
+                  Our Solution
+                </h2>
+                <p className="text-lg text-white/60 leading-relaxed font-light">
+                  Our approach combined deep strategic research with bleeding-edge technology. We implemented a headless CMS architecture to ensure blazingly fast load times and a future-proof content strategy. The interface features custom-designed micro-interactions and transitions that guide the user's focus and elevate the overall brand perception.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                  <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+                    <h4 className="font-bold mb-2 text-cyan-400">Custom Architecture</h4>
+                    <p className="text-sm text-white/40">Scalable backend built to handle millions of requests without compromise.</p>
+                  </div>
+                  <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+                    <h4 className="font-bold mb-2 text-purple-400">Fluid Interface</h4>
+                    <p className="text-sm text-white/40">Responsive design that adapts perfectly to every conceivable screen size.</p>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div className="space-y-10">
+              <div className="glass-card p-8">
+                <h3 className="text-lg font-bold mb-6">Technologies Used</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.tags?.map(tag => (
+                    <span
+                      key={tag}
+                      className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white/5 border border-white/10 text-white/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-1 rounded-3xl bg-gradient-to-br from-cyan-400/20 to-purple-600/20 block group">
+                <div className="glass-card p-8 !bg-space/90 h-full">
+                  <h3 className="text-lg font-bold mb-4">Project Results</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <span className="text-xs text-white/40">Performance Score</span>
+                        <span className="text-xs font-bold text-cyan-400">99/100</span>
+                      </div>
+                      <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          whileInView={{ width: '99%' }}
+                          className="h-full bg-cyan-400 shadow-[0_0_10px_#00f5ff]"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between mb-2">
+                        <span className="text-xs text-white/40">Load Speed</span>
+                        <span className="text-xs font-bold text-purple-400">0.8s</span>
+                      </div>
+                      <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          whileInView={{ width: '92%' }}
+                          className="h-full bg-purple-500 shadow-[0_0_10px_#7b2ff7]"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <a
+                    href="#"
+                    target="_blank"
+                    className="btn-primary w-full mt-8 !py-3 text-center block"
+                  >
+                    Visit Live Site
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Next Projects */}
+          <div className="pt-20 border-t border-white/[0.06]">
+            <h2 className="text-3xl font-black mb-12">More Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {siteConfig.portfolio
+                .filter(p => p.id !== project.id)
+                .slice(0, 2)
+                .map(p => (
+                  <Link
+                    key={p.id}
+                    to={`/project/${p.id}`}
+                    className="group relative h-64 rounded-3xl overflow-hidden glass-card"
+                  >
                     <img
                       src={p.image}
                       alt={p.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover opacity-40 group-hover:opacity-70 transition-all duration-500 scale-110 group-hover:scale-100"
                     />
-                  </div>
-                  <div className="p-5">
-                    <span
-                      className="text-xs font-semibold uppercase tracking-wider"
-                      style={{ color: p.color }}
-                    >
-                      {p.category}
-                    </span>
-                    <h3 className="text-base font-bold text-white mt-1">{p.title}</h3>
-                    <p className="text-xs text-white/40 mt-1.5 line-clamp-2">{p.description}</p>
-                  </div>
-                </Link>
-              ))}
+                    <div className="absolute inset-x-8 bottom-8">
+                      <p className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-2">Next Project</p>
+                      <h4 className="text-2xl font-bold">{p.title}</h4>
+                    </div>
+                  </Link>
+                ))}
+            </div>
           </div>
-        </motion.div>
+        </div>
       </main>
+
+      <Footer />
     </div>
   )
 }

@@ -10,7 +10,7 @@ export default function Portfolio() {
   const inView = useInView(ref, { once: true, margin: '-100px' })
   const [activeFilter, setActiveFilter] = useState('All')
 
-  const projects = siteConfig.projects
+  const projects = siteConfig.portfolio
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter(p => p.category === activeFilter)

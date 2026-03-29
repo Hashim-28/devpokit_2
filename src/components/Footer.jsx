@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-<<<<<<< HEAD
 import { Link } from 'react-router-dom'
 import siteConfig from '../data/siteConfig'
 
@@ -23,24 +22,12 @@ const footerLinks = {
     { label: 'Terms of Service', href: '/terms' },
     { label: 'Cookie Policy', href: '/cookies' },
   ],
-=======
-import siteConfig from '../data/siteConfig'
-
-const footerLinks = {
-  Services: ['Web Development', 'Mobile Apps', 'UI/UX Design', 'Cloud & DevOps', 'AI Integration'],
-  Company: ['About Us', 'How We Work', 'Careers', 'Blog', 'Press Kit'],
-  Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy'],
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 }
 
 const socials = [
   { label: 'GitHub', href: 'https://github.com', icon: 'GH' },
   { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'LI' },
   { label: 'Twitter', href: 'https://twitter.com', icon: 'TW' },
-<<<<<<< HEAD
-=======
-  { label: 'Dribbble', href: 'https://dribbble.com', icon: 'DR' },
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
 ]
 
 export default function Footer() {
@@ -54,31 +41,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-14">
           {/* Brand */}
           <div className="lg:col-span-2">
-<<<<<<< HEAD
             <Link 
               to="/" 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-2.5 mb-4 group inline-flex"
             >
-=======
-            <div className="flex items-center gap-2.5 mb-4">
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
               <div className="relative h-8 flex items-center">
                 {siteConfig.logoUrl ? (
                   <img
                     src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                     alt={siteConfig.siteName}
-<<<<<<< HEAD
                     className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                 ) : (
                   <div className="relative w-8 h-8 transition-transform duration-300 group-hover:scale-110">
-=======
-                    className="h-8 w-auto object-contain"
-                  />
-                ) : (
-                  <div className="relative w-8 h-8">
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                     <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
                     <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
                     <div className="relative flex items-center justify-center h-full">
@@ -90,11 +66,7 @@ export default function Footer() {
               <span className="font-bold text-xl tracking-tight">
                 Dev<span className="gradient-text">Pokit</span>
               </span>
-<<<<<<< HEAD
             </Link>
-=======
-            </div>
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
             <p className="text-sm text-white/40 leading-relaxed max-w-xs mb-6">
               We are a premium software house specializing in building world class digital products
               that scale, perform, and inspire.
@@ -121,7 +93,6 @@ export default function Footer() {
               <h4 className="text-xs font-bold uppercase tracking-widest text-white/30 mb-4">{heading}</h4>
               <ul className="space-y-2.5">
                 {links.map(link => (
-<<<<<<< HEAD
                   <li key={link.label}>
                     <Link
                       to={link.href}
@@ -141,12 +112,6 @@ export default function Footer() {
                     >
                       {link.label}
                     </Link>
-=======
-                  <li key={link}>
-                    <a href="#" className="text-sm text-white/50 hover:text-white transition-colors duration-200">
-                      {link}
-                    </a>
->>>>>>> cf4aac6c0deed30892adaa525af220761848410e
                   </li>
                 ))}
               </ul>
