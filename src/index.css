@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-cyan: #00f5ff;
+    --color-purple: #7b2ff7;
+    --color-space: #050816;
+    --color-space-light: #0a0f28;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: #050816;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(0, 245, 255, 0.2);
+    color: #00f5ff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050816;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #00f5ff, #7b2ff7);
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card (Safe Mode: No Blur) */
+  .glass-card {
+    @apply bg-white/[0.04] border border-white/[0.08] rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300;
+  }
+  .glass-card-hover:hover {
+    @apply border-white/20;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 245, 255, 0.08);
+    transform: translateY(-4px);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #00f5ff 0%, #7b2ff7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-cyan {
+    background: linear-gradient(135deg, #00f5ff 0%, #00b8c4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow button */
+  .btn-primary {
+    @apply relative px-8 py-4 rounded-xl font-semibold text-sm tracking-wide overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, #00f5ff, #7b2ff7);
+    color: #050816;
+  }
+
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, #7b2ff7, #00f5ff);
+  }
+  .btn-primary:hover::before {
+    @apply opacity-100;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.4), 0 0 80px rgba(123, 47, 247, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 rounded-xl font-semibold text-sm tracking-wide border transition-all duration-300;
+    border-color: rgba(0, 245, 255, 0.4);
+    color: #00f5ff;
+    background: rgba(0, 245, 255, 0.05);
+  }
+  .btn-secondary:hover {
+    background: rgba(0, 245, 255, 0.1);
+    border-color: rgba(0, 245, 255, 0.7);
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  /* Section heading */
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest mb-6;
+    background: rgba(0, 245, 255, 0.08);
+    border: 1px solid rgba(0, 245, 255, 0.2);
+    color: #00f5ff;
+  }
+
+  /* Animated grid background (Safe Mode: Disabled) */
+  .grid-bg {
+    display: none;
+    opacity: 0;
+  }
+
+  /* Input field */
+  .form-input {
+    @apply w-full px-5 py-4 rounded-xl text-white text-sm outline-none transition-all duration-300;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #e2e8f0;
+  }
+  .form-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  .form-input:focus {
+    border-color: rgba(0, 245, 255, 0.4);
+    background: rgba(0, 245, 255, 0.04);
+    box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.08), 0 0 20px rgba(0, 245, 255, 0.08);
+  }
+
+  /* Star dot */
+  .dot-cyan {
+    @apply w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block;
+    box-shadow: 0 0 8px #00f5ff;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-x 4s ease infinite;
+  }
+}
+
+/* Canvas full-fill */
+canvas {
+  display: block;
+}
