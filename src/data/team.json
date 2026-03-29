@@ -4,7 +4,7 @@
     "name": "Ahsan",
     "role": "Founder and App Developer",
     "bio": "Expert in building robust mobile applications with Flutter and Dart, backend by scalable MongoDB and PostgreSQL systems.",
-    "avatar": "public/images/ahsan.jpeg",
+    "avatar": "/images/ahsan.jpeg",
     "linkedin": "https://www.linkedin.com/in/ahsan-hameed-flutter?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     "github": "https://www.github.com/m-ahsan-hameed"
   },
@@ -13,7 +13,7 @@
     "name": "Hashim Ali",
     "role": "Co-founder and Web Developer",
     "bio": "Full-stack enthusiast focused on React, Node.js, and Tailwind CSS. Specializes in UI/UX design and automation with n8n.",
-    "avatar": "public/images/me1.png",
+    "avatar": "/images/me1.png",
     "linkedin": "https://www.linkedin.com/in/hashim-ali-055650279/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BhW9yM2ASSmeHlmrlaj2yAg%3D%3D",
     "github": "https://github.com/Hashim-28"
   }

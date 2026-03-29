@@ -18,7 +18,7 @@ const siteConfig = {
   //  - Set `logoUrl` to a path like '/logo.png' or a full URL
   //    to show an image logo.
   //  - Leave as null to use the default text + icon logo.
-  logoUrl: 'public/images/logo2.png',
+  logoUrl: '/images/logo2.png',
 
   // ── Hero Tech Badges ───────────────────────────────────────
   // Tags shown in the hero section as small pill-shaped badges
