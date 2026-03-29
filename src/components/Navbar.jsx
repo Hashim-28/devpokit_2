@@ -28,7 +28,7 @@ export default function Navbar() {
 
   const handleNav = (e, href) => {
     const id = href.replace('#', '')
-    
+
     if (location.pathname !== '/') {
       // If not on homepage, navigate to home then scroll
       setIsOpen(false)
@@ -85,9 +85,9 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link 
-              to="/#hero" 
-              onClick={(e) => handleNav(e, '#hero')} 
+            <Link
+              to="/#hero"
+              onClick={(e) => handleNav(e, '#hero')}
               className="flex items-center gap-2.5 group"
             >
               <div className="relative h-8 flex items-center">
