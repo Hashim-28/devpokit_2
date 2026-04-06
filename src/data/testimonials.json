@@ -1,38 +1,38 @@
 [
   {
     "id": 1,
-    "name": "James Mitchell",
-    "company": "TechNova Inc.",
-    "role": "CTO",
-    "text": "DevPokit transformed our legacy system into a modern cloud platform in record time. Their team's expertise and communication throughout the project was outstanding. Truly a world-class partner.",
+    "name": "Irfanullah",
+    "company": "Real Estate App Client",
+    "role": "CEO",
+    "text": "QiblaX delivered a phenomenal real estate application for us. The UI is incredibly smooth and the property listings load instantly, helping our business grow exponentially.",
     "rating": 5,
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=JamesMitchell"
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Irfanullah"
   },
   {
     "id": 2,
-    "name": "Aisha Rahman",
-    "company": "HealthBridge",
-    "role": "Product Manager",
-    "text": "Our Flutter app went from concept to App Store in just 8 weeks. The UI was stunning and the backend rock solid. DevPokit delivered beyond expectations — I'd recommend them to anyone.",
+    "name": "Sajid Imran",
+    "company": "Retail Operations",
+    "role": "Owner",
+    "text": "The POS system built by QiblaX has completely streamlined our retail operations. Their intuitive design and robust backend have minimized our system downtimes to zero.",
     "rating": 5,
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=AishaRahman"
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=SajidImran"
   },
   {
     "id": 3,
-    "name": "Carlos Rivera",
-    "company": "FinEdge Solutions",
-    "role": "CEO",
-    "text": "The fintech dashboard built by DevPokit handles millions of data points in real-time with zero lag. Their deep understanding of both UX and system architecture is rare and invaluable.",
+    "name": "Fatima Ali",
+    "company": "Fintech Solutions PK",
+    "role": "Product Manager",
+    "text": "We worked with QiblaX to revamp our mobile banking application. They quickly understood our needs and delivered an application that is both secure and highly user-friendly.",
     "rating": 5,
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=CarlosRivera"
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=FatimaAli"
   },
   {
     "id": 4,
-    "name": "Priya Sharma",
-    "company": "EduWorld",
-    "role": "Head of Engineering",
-    "text": "DevPokit built our entire LMS from scratch with advanced features like live sessions and gamification. The code quality was exceptional, and delivery was always on schedule.",
+    "name": "Muhammad Usman",
+    "company": "EduTech Connect",
+    "role": "Founder",
+    "text": "QiblaX built an e-learning platform that scaled effortlessly across our entire user base. Their team is extremely reliable and highly skilled. Highly recommended.",
     "rating": 5,
-    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=PriyaSharma"
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=MuhammadUsman"
   }
 ]

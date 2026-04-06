@@ -108,7 +108,7 @@ export default function Navbar() {
                 )}
               </div>
               <span className="font-bold text-lg sm:text-xl tracking-tight block">
-                Dev<span className="gradient-text">Pokit</span>
+                Qibla<span className="text-orange-500">X</span>
               </span>
             </Link>
 

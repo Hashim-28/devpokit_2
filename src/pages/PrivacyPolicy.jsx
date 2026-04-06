@@ -53,7 +53,7 @@ export default function PrivacyPolicy() {
               )}
             </div>
             <span className="font-bold text-lg sm:text-xl tracking-tight block">
-              Dev<span className="gradient-text">Pokit</span>
+              Qibla<span className="text-orange-500">X</span>
             </span>
           </Link>
           <div className="w-20" />
@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-xl font-bold text-white mb-4">1. Introduction</h2>
               <p>
-                At DevPokit, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
+                At QiblaX, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
               </p>
             </section>
 
@@ -120,7 +120,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-xl font-bold text-white mb-4">6. Contact Us</h2>
               <p>
-                If you have any questions about this privacy policy or our privacy practices, please contact us at devpokit@gmail.com.
+                If you have any questions about this privacy policy or our privacy practices, please contact us at qiblax@gmail.com.
               </p>
             </section>
           </div>

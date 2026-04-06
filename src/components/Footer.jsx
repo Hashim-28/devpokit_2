@@ -64,7 +64,7 @@ export default function Footer() {
                 )}
               </div>
               <span className="font-bold text-xl tracking-tight">
-                Dev<span className="gradient-text">Pokit</span>
+                Qibla<span className="text-orange-500">X</span>
               </span>
             </Link>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs mb-6">
@@ -125,7 +125,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} DevPokit. All rights reserved.
+            © {new Date().getFullYear()} QiblaX. All rights reserved.
           </p>
           <div className="flex items-center gap-1.5">
             <span className="dot-cyan animate-pulse-slow" />

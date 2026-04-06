@@ -1,6 +1,6 @@
 /**
  * ============================================================
- *  DevPokit — Central Site Configuration
+ *  QiblaX — Central Site Configuration
  * ============================================================
  *  This is the SINGLE source of truth for the whole website.
  *  Edit anything here and it will reflect across the site.
@@ -9,16 +9,16 @@
 
 const siteConfig = {
   // ── Brand ─────────────────────────────────────────────────
-  siteName: 'DevPokit',
+  siteName: 'QiblaX',
   tagline: 'We Build Digital Products That Matter.',
   description:
-    'DevPokit is a premium software house crafting scalable web platforms, mobile apps, and enterprise solutions powered by cutting edge technology and driven by design excellence.',
+    'QiblaX is a premium software house crafting scalable web platforms, mobile apps, and enterprise solutions powered by cutting edge technology and driven by design excellence.',
 
   // Logo:
   //  - Set `logoUrl` to a path like '/logo.png' or a full URL
   //    to show an image logo.
   //  - Leave as null to use the default text + icon logo.
-  logoUrl: '/images/logo2.png',
+  logoUrl: '/images/08-brandmark-transparent.png',
 
   // ── Hero Tech Badges ───────────────────────────────────────
   // Tags shown in the hero section as small pill-shaped badges
