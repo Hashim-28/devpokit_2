@@ -68,13 +68,13 @@ export default function BackgroundParticles() {
         // Performance optimization: Batch similar colors if possible (omitted for simplicity here)
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 245, 255, ${p.opacity * 0.6})`
+        ctx.fillStyle = `rgba(59, 130, 246, ${p.opacity * 0.6})`
         ctx.fill()
 
         // High count optimization: only shadow for very large particles
         if (p.size > 2.2) {
           ctx.shadowBlur = 6
-          ctx.shadowColor = 'rgba(123, 47, 247, 0.6)'
+          ctx.shadowColor = 'rgba(96, 165, 250, 0.6)'
         } else {
           ctx.shadowBlur = 0
         }

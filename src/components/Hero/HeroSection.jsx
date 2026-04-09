@@ -62,7 +62,7 @@ export default function HeroSection() {
             {/* Badge */}
             <motion.div variants={itemVariants}>
               <span className="section-badge">
-                <span className="dot-cyan animate-pulse-slow" />
+                <span className="dot-blue animate-pulse-slow" />
                 Available for new projects
               </span>
             </motion.div>
@@ -95,7 +95,7 @@ export default function HeroSection() {
                 <span className="relative z-10">View Our Work →</span>
               </a>
               <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="btn-secondary">
-                Start a Project
+                <span className="relative z-10">Start a Project</span>
               </a>
             </motion.div>
 
@@ -128,7 +128,7 @@ export default function HeroSection() {
         >
           {stats.map(({ value, label }) => (
             <div key={label} className="flex flex-col items-start gap-1">
-              <div className="text-2xl sm:text-3xl font-black gradient-text-cyan">{value}</div>
+              <div className="text-2xl sm:text-3xl font-black gradient-text-blue">{value}</div>
               <div className="text-xs text-white/40 font-medium">{label}</div>
             </div>
           ))}
@@ -143,7 +143,7 @@ export default function HeroSection() {
         className="absolute bottom-8 right-8 z-20 hidden md:flex flex-col items-center gap-2"
       >
         <span className="text-xs text-white/30 font-medium tracking-widest rotate-90 mb-2">SCROLL</span>
-        <div className="w-px h-16 bg-gradient-to-b from-cyan-400/50 to-transparent" />
+        <div className="w-px h-16 bg-gradient-to-b from-blue-400/50 to-transparent" />
       </motion.div>
     </section>
   )

@@ -95,21 +95,18 @@ export default function Navbar() {
                   <img
                     src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                     alt={siteConfig.siteName}
-                    className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+                    className="h-14 w-auto object-contain transition-transform group-hover:scale-105"
                   />
                 ) : (
-                  <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
+                  <div className="relative w-12 h-12 transition-transform group-hover:scale-110">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
                     <div className="relative flex items-center justify-center h-full">
-                      <span className="text-space font-black text-sm leading-none select-none">D</span>
+                      <span className="text-space font-black text-lg leading-none select-none">Q</span>
                     </div>
                   </div>
                 )}
               </div>
-              <span className="font-bold text-lg sm:text-xl tracking-tight block">
-                Qibla<span className="text-orange-500">X</span>
-              </span>
             </Link>
 
             {/* Desktop Nav */}
@@ -120,7 +117,7 @@ export default function Navbar() {
                   to={`/${href}`}
                   onClick={(e) => handleNav(e, href)}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-lg group ${active === href.replace('#', '') && location.pathname === '/'
-                    ? 'text-cyan-400'
+                    ? 'text-blue-400'
                     : 'text-white/60 hover:text-white'
                     }`}
                 >
@@ -128,7 +125,7 @@ export default function Navbar() {
                     <motion.span
                       layoutId="nav-active"
                       className="absolute inset-0 rounded-lg"
-                      style={{ background: 'rgba(0,245,255,0.08)', border: '1px solid rgba(0,245,255,0.15)' }}
+                      style={{ background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.15)' }}
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
                     />
                   )}
@@ -188,7 +185,7 @@ export default function Navbar() {
                   to={`/${href}`}
                   onClick={(e) => handleNav(e, href)}
                   className={`px-4 py-3 rounded-xl text-sm font-medium transition-all ${active === href.replace('#', '') && location.pathname === '/'
-                    ? 'text-cyan-400 bg-cyan-400/10 border border-cyan-400/20'
+                    ? 'text-blue-400 bg-blue-400/10 border border-blue-400/20'
                     : 'text-white/70 hover:text-white hover:bg-white/5'
                     }`}
                 >

@@ -21,42 +21,45 @@ function TeamCard({ member, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: index * 0.08, duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="glass-card p-7 group hover:border-white/20 hover:-translate-y-2 transition-all duration-300"
+      className="glass-card-hover electric-hover group p-[1px]"
     >
-      {/* Avatar */}
-      <div className="relative w-20 h-20 mb-5 mx-auto">
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400 to-purple-600 p-[2px]">
-          <div className="w-full h-full rounded-full overflow-hidden bg-space">
-            <img
-              src={member.avatar}
-              alt={member.name}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+      <div className="glow-intense" />
+      <div className="electric-inner p-7 h-full" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+        {/* Avatar */}
+        <div className="relative w-20 h-20 mb-5" style={{ flexShrink: 0 }}>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-[2px]">
+            <div className="w-full h-full rounded-full overflow-hidden bg-space">
+              <img
+                src={member.avatar}
+                alt={member.name}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
+          {/* Online dot */}
+          <div
+            className="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-blue-400 border-2 border-space"
+            style={{ boxShadow: '0 0 8px rgba(59,130,246,0.8)' }}
+          />
         </div>
-        {/* Online dot */}
-        <div className="absolute bottom-0.5 right-0.5 w-3.5 h-3.5 rounded-full bg-cyan-400 border-2 border-space"
-          style={{ boxShadow: '0 0 8px rgba(0,245,255,0.8)' }}
-        />
-      </div>
 
-      <div className="text-center">
-        <h3 className="font-bold text-white text-base mb-1">{member.name}</h3>
-        <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3"
-          style={{ background: 'rgba(0,245,255,0.08)', color: '#00f5ff', border: '1px solid rgba(0,245,255,0.2)' }}
+        <h3 className="font-bold text-white text-base mb-1" style={{ width: '100%' }}>{member.name}</h3>
+        <span
+          className="inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3"
+          style={{ background: 'rgba(59,130,246,0.08)', color: '#3b82f6', border: '1px solid rgba(59,130,246,0.2)' }}
         >
           {member.role}
         </span>
-        <p className="text-sm text-white/50 leading-relaxed mb-5">{member.bio}</p>
+        <p className="text-sm text-white/50 leading-relaxed mb-5" style={{ width: '100%' }}>{member.bio}</p>
 
         {/* Social links */}
-        <div className="flex items-center justify-center gap-3">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
           <a
             href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-white/40 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all duration-200 border border-white/[0.06] hover:border-cyan-400/30"
+            className="w-9 h-9 rounded-xl flex items-center justify-center text-white/40 hover:text-blue-400 hover:bg-blue-400/10 transition-all duration-200 border border-white/[0.06] hover:border-blue-400/30"
           >
             <LinkedInIcon />
           </a>
@@ -109,10 +112,12 @@ export default function Team() {
           </motion.p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Cards — centered flex-wrap so any number of cards stays centered */}
+        <div className="flex flex-wrap justify-center gap-5">
           {team.map((member, i) => (
-            <TeamCard key={member.id} member={member} index={i} />
+            <div key={member.id} style={{ width: '100%', maxWidth: '360px' }}>
+              <TeamCard member={member} index={i} />
+            </div>
           ))}
         </div>
       </div>

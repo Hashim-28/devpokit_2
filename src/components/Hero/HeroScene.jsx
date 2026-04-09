@@ -20,14 +20,14 @@ function FloatingOrb() {
     <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.8}>
       <Sphere ref={meshRef} args={[1.8, 64, 64]}>
         <MeshDistortMaterial
-          color="#00f5ff"
+          color="#f97316"
           attach="material"
           distort={0.45}
           speed={1.8}
           roughness={0}
           metalness={0.8}
           envMapIntensity={1.5}
-          emissive="#00f5ff"
+          emissive="#f97316"
           emissiveIntensity={0.08}
           transparent
           opacity={0.85}
@@ -83,8 +83,8 @@ function SmallOrb() {
     <mesh ref={ref} position={[-2.5, -1.5, 0]}>
       <sphereGeometry args={[0.35, 32, 32]} />
       <meshStandardMaterial
-        color="#00f5ff"
-        emissive="#00f5ff"
+        color="#f97316"
+        emissive="#f97316"
         emissiveIntensity={0.6}
         transparent
         opacity={0.8}
@@ -106,7 +106,7 @@ function GridRing() {
 
   return (
     <mesh ref={ref} geometry={geometry} rotation={[Math.PI / 3, 0.3, 0]}>
-      <meshBasicMaterial color="#00f5ff" transparent opacity={0.15} />
+      <meshBasicMaterial color="#f97316" transparent opacity={0.15} />
     </mesh>
   )
 }
@@ -154,7 +154,7 @@ function Particles() {
       </bufferGeometry>
       <pointsMaterial
         size={0.04}
-        color="#00f5ff"
+        color="#f97316"
         transparent
         opacity={0.6}
         sizeAttenuation
@@ -172,7 +172,7 @@ export default function HeroScene() {
       style={{ background: 'transparent' }}
     >
       <ambientLight intensity={0.2} />
-      <pointLight position={[5, 5, 5]} intensity={1.5} color="#00f5ff" />
+      <pointLight position={[5, 5, 5]} intensity={1.5} color="#f97316" />
       <pointLight position={[-5, -3, -5]} intensity={1} color="#7b2ff7" />
       <pointLight position={[0, -5, 3]} intensity={0.5} color="#ffffff" />
 

@@ -24,7 +24,7 @@ export default function Services() {
       {/* Background accents */}
       <div
         className="absolute top-1/4 right-0 w-96 h-96 rounded-full blur-[120px] pointer-events-none opacity-20"
-        style={{ background: 'radial-gradient(circle, #00f5ff 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, #f97316 0%, transparent 70%)' }}
       />
       <div
         className="absolute bottom-1/4 left-0 w-96 h-96 rounded-full blur-[120px] pointer-events-none opacity-10"
@@ -69,43 +69,46 @@ export default function Services() {
               variants={cardVariants}
               initial="hidden"
               animate={inView ? 'visible' : 'hidden'}
-              className="glass-card-hover p-8 group relative overflow-hidden"
+              className="glass-card-hover electric-hover group p-[1px] h-full"
             >
-              {/* Card background gradient on hover */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
-                style={{
-                  background: `radial-gradient(circle at 50% 0%, ${service.color}, transparent 70%)`,
-                }}
-              />
+              <div className="glow-intense" />
+              <div className="electric-inner p-8 h-full">
+                {/* Card background gradient on hover */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at 50% 0%, ${service.color}, transparent 70%)`,
+                  }}
+                />
 
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
-                style={{
-                  background: `${service.color}12`,
-                  border: `1px solid ${service.color}25`,
-                }}
-              >
-                <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-                  {service.icon}
-                </span>
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                  style={{
+                    background: `${service.color}12`,
+                    border: `1px solid ${service.color}25`,
+                  }}
+                >
+                  <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
+                    {service.icon}
+                  </span>
+                </div>
+
+                <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-white/50 text-sm leading-relaxed font-light group-hover:text-white/70 transition-colors">
+                  {service.description}
+                </p>
+
+                {/* Bottom accent bar */}
+                <div
+                  className="absolute bottom-0 left-0 h-1 bg-gradient-to-r transition-all duration-500 w-0 group-hover:w-full"
+                  style={{
+                    backgroundImage: `linear-gradient(to right, ${service.color}, #7b2ff7)`,
+                    boxShadow: `0 0 15px ${service.color}80`,
+                  }}
+                />
               </div>
-
-              <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-white/50 text-sm leading-relaxed font-light group-hover:text-white/70 transition-colors">
-                {service.description}
-              </p>
-
-              {/* Bottom accent bar */}
-              <div
-                className="absolute bottom-0 left-0 h-1 bg-gradient-to-r transition-all duration-500 w-0 group-hover:w-full"
-                style={{
-                  backgroundImage: `linear-gradient(to right, ${service.color}, #7b2ff7)`,
-                  boxShadow: `0 0 15px ${service.color}80`,
-                }}
-              />
             </motion.div>
           ))}
         </div>
@@ -115,10 +118,10 @@ export default function Services() {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-24 lg:mt-32 p-8 lg:p-12 glass-card border-cyan-400/10 relative overflow-hidden group"
+          className="mt-24 lg:mt-32 p-8 lg:p-12 glass-card border-blue-400/10 relative overflow-hidden group"
         >
           {/* Subtle bg glow */}
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-400/5 blur-[80px] rounded-full group-hover:bg-cyan-400/10 transition-colors" />
+          <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-400/5 blur-[80px] rounded-full group-hover:bg-blue-400/10 transition-colors" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
             <div className="lg:col-span-1 border-b lg:border-b-0 lg:border-r border-white/10 pb-8 lg:pb-0 lg:pr-12">
@@ -136,7 +139,7 @@ export default function Services() {
                 { label: 'Cloud', techs: 'AWS, Docker, Kubernetes, Vercel' },
               ].map((group) => (
                 <div key={group.label} className="flex flex-col gap-1.5">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-cyan-400 font-bold">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-bold">
                     {group.label}
                   </span>
                   <span className="text-sm text-white/80 font-medium">{group.techs}</span>

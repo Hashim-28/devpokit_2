@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 import testimonials from '../data/testimonials.json'
 
 const StarRating = ({ count }) => (
-  <div className="flex gap-1 mb-4">
+  <div className="flex justify-center gap-1 mb-4">
     {Array.from({ length: count }).map((_, i) => (
       <span key={i} className="text-yellow-400 text-base" style={{ filter: 'drop-shadow(0 0 4px rgba(250,200,0,0.6))' }}>★</span>
     ))}
@@ -94,7 +94,7 @@ export default function Testimonials() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <div className="w-14 h-14 rounded-full overflow-hidden border-2"
-                  style={{ borderColor: 'rgba(0,245,255,0.3)' }}
+                  style={{ borderColor: 'rgba(249,115,22,0.3)' }}
                 >
                   <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
                 </div>
@@ -110,7 +110,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-center gap-5 mt-8">
             <button
               onClick={handlePrev}
-              className="w-11 h-11 rounded-full glass-card flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/30 transition-all duration-200"
+              className="w-11 h-11 rounded-full glass-card flex items-center justify-center text-white/60 hover:text-blue-400 hover:border-blue-400/30 transition-all duration-200"
             >
               ←
             </button>
@@ -122,7 +122,7 @@ export default function Testimonials() {
                   key={i}
                   onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); resetTimer() }}
                   className={`transition-all duration-300 rounded-full ${
-                    i === current ? 'w-6 h-2 bg-cyan-400' : 'w-2 h-2 bg-white/20 hover:bg-white/40'
+                    i === current ? 'w-6 h-2 bg-blue-400' : 'w-2 h-2 bg-white/20 hover:bg-white/40'
                   }`}
                 />
               ))}
@@ -130,7 +130,7 @@ export default function Testimonials() {
 
             <button
               onClick={handleNext}
-              className="w-11 h-11 rounded-full glass-card flex items-center justify-center text-white/60 hover:text-cyan-400 hover:border-cyan-400/30 transition-all duration-200"
+              className="w-11 h-11 rounded-full glass-card flex items-center justify-center text-white/60 hover:text-blue-400 hover:border-blue-400/30 transition-all duration-200"
             >
               →
             </button>

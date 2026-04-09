@@ -10,10 +10,10 @@ export default {
         'space': '#050816',
         'space-light': '#0a0f28',
         'navy': '#0d1b3e',
-        'cyan': {
-          DEFAULT: '#00f5ff',
-          dark: '#00b8c4',
-          glow: 'rgba(0,245,255,0.15)',
+        'blue': {
+          DEFAULT: '#3b82f6',
+          dark: '#2563eb',
+          glow: 'rgba(59,130,246,0.15)',
         },
         'purple': {
           DEFAULT: '#7b2ff7',
@@ -29,14 +29,14 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-gradient': 'radial-gradient(ellipse at 80% 50%, rgba(123,47,247,0.15) 0%, rgba(0,245,255,0.05) 50%, transparent 70%)',
+        'hero-gradient': 'radial-gradient(ellipse at 80% 50%, rgba(123,47,247,0.15) 0%, rgba(59,130,246,0.05) 50%, transparent 70%)',
         'card-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
-        'cyan-glow': 'radial-gradient(ellipse at center, rgba(0,245,255,0.2) 0%, transparent 70%)',
+        'blue-glow': 'radial-gradient(ellipse at center, rgba(59,130,246,0.2) 0%, transparent 70%)',
         'purple-glow': 'radial-gradient(ellipse at center, rgba(123,47,247,0.2) 0%, transparent 70%)',
       },
       boxShadow: {
         'glass': '0 8px 32px rgba(0,0,0,0.5)',
-        'glow-cyan': '0 0 40px rgba(0,245,255,0.2), 0 0 80px rgba(0,245,255,0.08)',
+        'glow-blue': '0 0 40px rgba(59,130,246,0.2), 0 0 80px rgba(59,130,246,0.08)',
         'glow-purple': '0 0 40px rgba(123,47,247,0.2), 0 0 80px rgba(123,47,247,0.08)',
         'card': '0 4px 24px rgba(0,0,0,0.4)',
         'card-hover': '0 8px 48px rgba(0,0,0,0.6)',

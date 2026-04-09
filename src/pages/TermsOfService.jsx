@@ -40,21 +40,18 @@ export default function TermsOfService() {
                 <img
                   src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                   alt={siteConfig.siteName}
-                  className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+                  className="h-14 w-auto object-contain transition-transform group-hover:scale-105"
                 />
               ) : (
-                <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
+                <div className="relative w-12 h-12 transition-transform group-hover:scale-110">
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
                   <div className="relative flex items-center justify-center h-full">
-                    <span className="text-space font-black text-sm leading-none select-none">D</span>
+                    <span className="text-space font-black text-lg leading-none select-none">Q</span>
                   </div>
                 </div>
               )}
             </div>
-            <span className="font-bold text-lg sm:text-xl tracking-tight block">
-              Dev<span className="gradient-text">Pokit</span>
-            </span>
           </Link>
           <div className="w-20" />
         </div>
@@ -74,7 +71,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl font-bold text-white mb-4">1. Agreement to Terms</h2>
               <p>
-                By accessing or using our services at DevPokit, you agree to be bound by these Terms of Service. If you do not agree to all these terms, then you may not access the website or use any services.
+                By accessing or using our services, you agree to be bound by these Terms of Service. If you do not agree to all these terms, then you may not access the website or use any services.
               </p>
             </section>
 
@@ -109,7 +106,7 @@ export default function TermsOfService() {
             <section>
               <h2 className="text-xl font-bold text-white mb-4">6. Governing Law</h2>
               <p>
-                These terms shall be governed by and defined following the laws of Pakistan. DevPokit and yourself irrevocably consent that the courts of Pakistan shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
+                These terms shall be governed by and defined following the laws of Pakistan. The company and yourself irrevocably consent that the courts of Pakistan shall have exclusive jurisdiction to resolve any dispute which may arise in connection with these terms.
               </p>
             </section>
           </div>

@@ -7,7 +7,7 @@ const steps = [
     number: '01',
     title: 'Discovery & Strategy',
     description: 'We start by understanding your vision, goals, and users. We define the roadmap and technical architecture to ensure a solid foundation.',
-    color: '#00f5ff',
+    color: '#f97316',
   },
   {
     number: '02',
@@ -19,7 +19,7 @@ const steps = [
     number: '03',
     title: 'Agile Development',
     description: 'We build your product using cutting-edge technologies and clean code practices, with frequent updates and iterative improvements.',
-    color: '#00f5ff',
+    color: '#f97316',
   },
   {
     number: '04',
@@ -45,7 +45,7 @@ export default function About() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5 }}
             >
-              <span className="section-badge">About DevPokit</span>
+              <span className="section-badge">About Us</span>
             </motion.div>
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg text-white/50 leading-relaxed font-light mb-8"
             >
-              DevPokit was founded on the principle that software should be more than just code it should be a powerful tool for growth and a delight to use. We combine deep technical expertise with a design first mindset to build products that stand out in today's crowded digital landscape.
+              Our company was founded on the principle that software should be more than just code it should be a powerful tool for growth and a delight to use. We combine deep technical expertise with a design first mindset to build products that stand out in today's crowded digital landscape.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -71,16 +71,16 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap gap-4"
             >
-              <div className="glass-card px-6 py-4 flex flex-col items-center justify-center border-cyan-400/20">
-                <span className="text-2xl font-black text-cyan-400">50+</span>
+              <div className="glass-card px-6 py-4 flex flex-col items-center justify-center border-blue-400/20">
+                <span className="text-2xl font-black text-blue-400">50+</span>
                 <span className="text-[10px] uppercase tracking-widest text-white/40">Projects</span>
               </div>
               <div className="glass-card px-6 py-4 flex flex-col items-center justify-center border-purple-400/20">
                 <span className="text-2xl font-black text-purple-400">3+</span>
                 <span className="text-[10px] uppercase tracking-widest text-white/40">Years</span>
               </div>
-              <div className="glass-card px-6 py-4 flex flex-col items-center justify-center border-cyan-400/20">
-                <span className="text-2xl font-black text-cyan-400">100%</span>
+              <div className="glass-card px-6 py-4 flex flex-col items-center justify-center border-blue-400/20">
+                <span className="text-2xl font-black text-blue-400">100%</span>
                 <span className="text-[10px] uppercase tracking-widest text-white/40">Delivery</span>
               </div>
             </motion.div>
@@ -126,15 +126,18 @@ export default function About() {
                   <div className="hidden lg:block absolute top-[52px] left-[100px] w-full h-[1px] bg-gradient-to-r from-white/20 to-transparent z-0" />
                 )}
 
-                <div className="relative z-10 glass-card p-7 group-hover:border-white/20 transition-all duration-300 h-full">
-                  <div
-                    className="text-4xl font-black mb-4 opacity-20 group-hover:opacity-100 transition-opacity"
-                    style={{ color: step.color }}
-                  >
-                    {step.number}
+                <div className="relative z-10 glass-card electric-hover h-full p-[1px]">
+                  <div className="glow-intense" />
+                  <div className="electric-inner p-7 h-full">
+                    <div
+                      className="text-4xl font-black mb-4 opacity-20 group-hover:opacity-100 transition-opacity"
+                      style={{ color: step.color }}
+                    >
+                      {step.number}
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-3">{step.title}</h4>
+                    <p className="text-sm text-white/50 leading-relaxed font-light">{step.description}</p>
                   </div>
-                  <h4 className="text-lg font-bold text-white mb-3">{step.title}</h4>
-                  <p className="text-sm text-white/50 leading-relaxed font-light">{step.description}</p>
                 </div>
               </motion.div>
             ))}

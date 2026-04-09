@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import emailjs from 'emailjs-com'
+import siteConfig from '../data/siteConfig'
 
 // ⚠️ Replace these with your real EmailJS credentials
 const EMAILJS_SERVICE_ID = 'service_dna003c'
@@ -13,7 +14,7 @@ const contactInfo = [
     label: 'Email Us',
     value: 'qiblax@gmail.com',
     href: 'mailto:qiblax@gmail.com',
-    color: '#00f5ff',
+    color: '#3b82f6',
   },
   {
     icon: '◎',
@@ -25,9 +26,9 @@ const contactInfo = [
   {
     icon: '⌖',
     label: 'LinkedIn',
-    value: 'QiblaX Software',
+    value: 'LinkedIn Profile',
     href: 'https://linkedin.com',
-    color: '#00f5ff',
+    color: '#3b82f6',
   },
 ]
 
@@ -90,6 +91,26 @@ export default function Contact() {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
             >
+              {/* Logo */}
+              <div className="flex items-center gap-2.5 mb-8 group">
+                <div className="relative h-16 flex items-center">
+                  {siteConfig.logoUrl ? (
+                    <img
+                      src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
+                      alt={siteConfig.siteName}
+                      className="h-16 w-auto object-contain"
+                      style={{ filter: 'drop-shadow(0 0 10px rgba(59,130,246,0.3)) brightness(1.15)' }}
+                    />
+                  ) : (
+                    <div className="relative w-14 h-14">
+                      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400 to-purple-600 opacity-90" />
+                      <div className="relative flex items-center justify-center h-full">
+                        <span className="text-white font-black text-xl">Q</span>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
               <span className="section-badge">Get in Touch</span>
             </motion.div>
             <motion.h2
@@ -158,7 +179,7 @@ export default function Contact() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-6 p-4 rounded-xl text-sm font-medium"
-                  style={{ background: 'rgba(0,245,255,0.1)', border: '1px solid rgba(0,245,255,0.3)', color: '#00f5ff' }}
+                  style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.3)', color: '#3b82f6' }}
                 >
                   ✓ Message sent! We'll reply within 24 hours.
                 </motion.div>

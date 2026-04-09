@@ -20,7 +20,7 @@ export default function Portfolio() {
     <section id="portfolio" className="py-28 lg:py-36 relative">
       {/* BG accent */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] max-w-3xl max-h-3xl rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(0,245,255,0.03) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse, rgba(59,130,246,0.03) 0%, transparent 70%)' }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +64,7 @@ export default function Portfolio() {
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
                 className={`px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 ${activeFilter === cat
-                    ? 'bg-gradient-to-r from-cyan-400 to-purple-600 text-space shadow-glow-cyan'
+                    ? 'bg-gradient-to-r from-blue-400 to-purple-600 text-white shadow-glow-blue'
                     : 'glass-card text-white/50 hover:text-white border-white/10'
                   }`}
               >
@@ -93,7 +93,7 @@ export default function Portfolio() {
           className="text-center mt-14"
         >
           <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) }} className="btn-secondary">
-            Start Your Project
+            <span className="relative z-10">Start Your Project</span>
           </a>
         </motion.div>
       </div>

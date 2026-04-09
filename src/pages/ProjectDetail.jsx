@@ -36,9 +36,8 @@ export default function ProjectDetail() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'backdrop-blur-xl bg-space/80 border-b border-white/[0.06]' : 'bg-transparent'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'backdrop-blur-xl bg-space/80 border-b border-white/[0.06]' : 'bg-transparent'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -48,21 +47,18 @@ export default function ProjectDetail() {
                   <img
                     src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                     alt={siteConfig.siteName}
-                    className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+                    className="h-14 w-auto object-contain transition-transform group-hover:scale-105"
                   />
                 ) : (
-                  <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
+                  <div className="relative w-12 h-12 transition-transform group-hover:scale-110">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-90" />
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-40 blur-md" />
                     <div className="relative flex items-center justify-center h-full">
-                      <span className="text-space font-black text-sm leading-none">D</span>
+                      <span className="text-space font-black text-lg leading-none">Q</span>
                     </div>
                   </div>
                 )}
               </div>
-              <span className="font-bold text-lg sm:text-xl tracking-tight block">
-                Dev<span className="gradient-text">Pokit</span>
-              </span>
             </Link>
 
             <Link
@@ -85,7 +81,7 @@ export default function ProjectDetail() {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center gap-3 mb-6">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 uppercase tracking-widest">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-400/10 text-blue-400 border border-blue-400/20 uppercase tracking-widest">
                   {project.category}
                 </span>
                 <span className="text-white/20">•</span>
@@ -139,12 +135,68 @@ export default function ProjectDetail() {
             <div className="absolute inset-0 bg-gradient-to-t from-space/80 via-transparent to-transparent opacity-60 pointer-events-none" />
           </motion.div>
 
+          {/* Screenshot Gallery */}
+          {project.screenshots?.length > 0 && (
+            <div className="mb-24">
+              <div className="flex items-center gap-3 mb-8">
+                <span className="w-8 h-px bg-blue-400" />
+                <h2 className="text-2xl font-bold">Project Screenshots</h2>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* Large featured screenshot */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="md:row-span-2 relative rounded-2xl overflow-hidden glass-card group aspect-[4/3]"
+                >
+                  <img
+                    src={project.screenshots[0]}
+                    alt={`${project.title} screenshot 1`}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-space/60 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4">
+                    <span className="px-2 py-1 rounded-md text-[10px] font-bold bg-blue-400/20 text-blue-400 border border-blue-400/30 uppercase tracking-widest">
+                      Screen 01
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Remaining screenshots */}
+                {project.screenshots.slice(1).map((src, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (i + 1) * 0.1 }}
+                    className="relative rounded-2xl overflow-hidden glass-card group aspect-video"
+                  >
+                    <img
+                      src={src}
+                      alt={`${project.title} screenshot ${i + 2}`}
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-space/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute bottom-3 left-3">
+                      <span className="px-2 py-1 rounded-md text-[10px] font-bold bg-purple-400/20 text-purple-400 border border-purple-400/30 uppercase tracking-widest">
+                        Screen 0{i + 2}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Details Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-24">
             <div className="lg:col-span-2 space-y-12">
               <section>
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <span className="w-8 h-px bg-cyan-400" />
+                  <span className="w-8 h-px bg-blue-400" />
                   The Challenge
                 </h2>
                 <p className="text-lg text-white/60 leading-relaxed font-light">
@@ -154,7 +206,7 @@ export default function ProjectDetail() {
 
               <section>
                 <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <span className="w-8 h-px bg-cyan-400" />
+                  <span className="w-8 h-px bg-blue-400" />
                   Our Solution
                 </h2>
                 <p className="text-lg text-white/60 leading-relaxed font-light">
@@ -162,7 +214,7 @@ export default function ProjectDetail() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
                   <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
-                    <h4 className="font-bold mb-2 text-cyan-400">Custom Architecture</h4>
+                    <h4 className="font-bold mb-2 text-blue-400">Custom Architecture</h4>
                     <p className="text-sm text-white/40">Scalable backend built to handle millions of requests without compromise.</p>
                   </div>
                   <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
@@ -188,20 +240,20 @@ export default function ProjectDetail() {
                 </div>
               </div>
 
-              <div className="p-1 rounded-3xl bg-gradient-to-br from-cyan-400/20 to-purple-600/20 block group">
+              <div className="p-1 rounded-3xl bg-gradient-to-br from-blue-400/20 to-purple-600/20 block group">
                 <div className="glass-card p-8 !bg-space/90 h-full">
                   <h3 className="text-lg font-bold mb-4">Project Results</h3>
                   <div className="space-y-6">
                     <div>
                       <div className="flex justify-between mb-2">
                         <span className="text-xs text-white/40">Performance Score</span>
-                        <span className="text-xs font-bold text-cyan-400">99/100</span>
+                        <span className="text-xs font-bold text-blue-400">99/100</span>
                       </div>
                       <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                        <motion.div 
+                        <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: '99%' }}
-                          className="h-full bg-cyan-400 shadow-[0_0_10px_#00f5ff]"
+                          className="h-full bg-blue-400 shadow-[0_0_10px_#3b82f6]"
                         />
                       </div>
                     </div>
@@ -211,7 +263,7 @@ export default function ProjectDetail() {
                         <span className="text-xs font-bold text-purple-400">0.8s</span>
                       </div>
                       <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                        <motion.div 
+                        <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: '92%' }}
                           className="h-full bg-purple-500 shadow-[0_0_10px_#7b2ff7]"
@@ -230,7 +282,7 @@ export default function ProjectDetail() {
               </div>
             </div>
           </div>
-          
+
           {/* Next Projects */}
           <div className="pt-20 border-t border-white/[0.06]">
             <h2 className="text-3xl font-black mb-12">More Projects</h2>
@@ -250,7 +302,7 @@ export default function ProjectDetail() {
                       className="w-full h-full object-cover opacity-40 group-hover:opacity-70 transition-all duration-500 scale-110 group-hover:scale-100"
                     />
                     <div className="absolute inset-x-8 bottom-8">
-                      <p className="text-[10px] font-bold text-cyan-400 uppercase tracking-widest mb-2">Next Project</p>
+                      <p className="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-2">Next Project</p>
                       <h4 className="text-2xl font-bold">{p.title}</h4>
                     </div>
                   </Link>

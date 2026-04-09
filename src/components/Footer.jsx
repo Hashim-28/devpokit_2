@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.06] pt-16 pb-8 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-cyan-400/50 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-blue-400/50 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Top row */}
@@ -46,26 +46,24 @@ export default function Footer() {
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className="flex items-center gap-2.5 mb-4 group inline-flex"
             >
-              <div className="relative h-8 flex items-center">
+              <div className="relative h-10 flex items-center">
                 {siteConfig.logoUrl ? (
                   <img
                     src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                     alt={siteConfig.siteName}
-                    className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                    className="h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    style={{ filter: 'drop-shadow(0 0 10px rgba(59,130,246,0.3)) brightness(1.15)' }}
                   />
                 ) : (
-                  <div className="relative w-8 h-8 transition-transform duration-300 group-hover:scale-110">
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90" />
-                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md" />
+                  <div className="relative w-12 h-12 transition-transform duration-300 group-hover:scale-110">
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-90" />
+                    <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-40 blur-md" />
                     <div className="relative flex items-center justify-center h-full">
-                      <span className="text-space font-black text-sm leading-none">D</span>
+                      <span className="text-space font-black text-xl leading-none">Q</span>
                     </div>
                   </div>
                 )}
               </div>
-              <span className="font-bold text-xl tracking-tight">
-                Qibla<span className="text-orange-500">X</span>
-              </span>
             </Link>
             <p className="text-sm text-white/40 leading-relaxed max-w-xs mb-6">
               We are a premium software house specializing in building world class digital products
@@ -78,7 +76,7 @@ export default function Footer() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-xs font-bold text-white/50 hover:text-cyan-400 hover:border-cyan-400/30 transition-all duration-200"
+                  className="w-9 h-9 rounded-xl glass-card flex items-center justify-center text-xs font-bold text-white/50 hover:text-blue-400 hover:border-blue-400/30 transition-all duration-200"
                   aria-label={s.label}
                 >
                   {s.icon}
@@ -125,10 +123,10 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/30">
-            © {new Date().getFullYear()} QiblaX. All rights reserved.
+            © {new Date().getFullYear()}. All rights reserved.
           </p>
           <div className="flex items-center gap-1.5">
-            <span className="dot-cyan animate-pulse-slow" />
+            <span className="dot-blue animate-pulse-slow" />
             <span className="text-xs text-white/30">All systems operational</span>
           </div>
         </div>

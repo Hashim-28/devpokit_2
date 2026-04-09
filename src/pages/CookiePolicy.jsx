@@ -35,26 +35,23 @@ export default function CookiePolicy() {
           
           {/* Logo - Matching Home Navbar */}
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="relative h-8 flex items-center">
+            <div className="relative h-14 flex items-center">
               {siteConfig.logoUrl ? (
                 <img
                   src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                   alt={siteConfig.siteName}
-                  className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+                  className="h-14 w-auto object-contain transition-transform group-hover:scale-105"
                 />
               ) : (
-                <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
+                <div className="relative w-12 h-12 transition-transform group-hover:scale-110">
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
                   <div className="relative flex items-center justify-center h-full">
-                    <span className="text-space font-black text-sm leading-none select-none">D</span>
+                    <span className="text-space font-black text-lg leading-none select-none">Q</span>
                   </div>
                 </div>
               )}
             </div>
-            <span className="font-bold text-lg sm:text-xl tracking-tight block">
-              Dev<span className="gradient-text">Pokit</span>
-            </span>
           </Link>
           <div className="w-20" />
         </div>

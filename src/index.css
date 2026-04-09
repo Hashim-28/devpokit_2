@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --color-cyan: #00f5ff;
+    --color-blue: #3b82f6;
     --color-purple: #7b2ff7;
     --color-space: #050816;
     --color-space-light: #0a0f28;
@@ -32,8 +32,8 @@
   }
 
   ::selection {
-    background: rgba(0, 245, 255, 0.2);
-    color: #00f5ff;
+    background: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
   }
 
   ::-webkit-scrollbar {
@@ -45,12 +45,13 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #00f5ff, #7b2ff7);
+    background: linear-gradient(to bottom, #3b82f6, #7b2ff7);
     border-radius: 3px;
   }
 }
 
 @layer components {
+
   /* Glassmorphism card (Safe Mode: No Blur) */
   .glass-card {
     @apply bg-white/[0.04] border border-white/[0.08] rounded-2xl;
@@ -58,68 +59,92 @@
   }
 
   .glass-card-hover {
-    @apply glass-card transition-all duration-300;
+    @apply glass-card transition-all duration-500 ease-out;
   }
+
   .glass-card-hover:hover {
-    @apply border-white/20;
-    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 245, 255, 0.08);
-    transform: translateY(-4px);
+    @apply border-white/20 -translate-y-4 scale-[1.03];
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.7),
+      0 0 40px rgba(59, 130, 246, 0.2);
   }
 
   /* Gradient text */
   .gradient-text {
-    background: linear-gradient(135deg, #00f5ff 0%, #7b2ff7 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #7b2ff7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .gradient-text-cyan {
-    background: linear-gradient(135deg, #00f5ff 0%, #00b8c4 100%);
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Glow button */
+  /* Glow button - Primary (Shimmer & Glow) */
   .btn-primary {
-    @apply relative px-8 py-4 rounded-xl font-semibold text-sm tracking-wide overflow-hidden transition-all duration-300;
-    background: linear-gradient(135deg, #00f5ff, #7b2ff7);
-    color: #050816;
+    @apply relative px-8 py-4 rounded-xl font-semibold text-sm tracking-wide overflow-hidden transition-all duration-500 border border-white/10;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    box-shadow: 0 0 20px rgba(0, 114, 255, 0.4);
+    color: white;
   }
 
-  .btn-primary::before {
-    content: '';
-    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
-    background: linear-gradient(135deg, #7b2ff7, #00f5ff);
+  .btn-primary::after {
+    content: "";
+    @apply absolute inset-0 -translate-x-full transition-transform duration-1000;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
   }
-  .btn-primary:hover::before {
-    @apply opacity-100;
-  }
+
   .btn-primary:hover {
-    box-shadow: 0 0 40px rgba(0, 245, 255, 0.4), 0 0 80px rgba(123, 47, 247, 0.2);
-    transform: translateY(-2px);
+    @apply border-white/30;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    transform: translateY(-2px) scale(1.02);
   }
 
-  .btn-secondary {
-    @apply px-8 py-4 rounded-xl font-semibold text-sm tracking-wide border transition-all duration-300;
-    border-color: rgba(0, 245, 255, 0.4);
-    color: #00f5ff;
-    background: rgba(0, 245, 255, 0.05);
+  .btn-primary:hover::after {
+    @apply translate-x-full;
   }
+
+  /* Glow button - Secondary (Fills on Hover) */
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-sm tracking-wide border transition-all duration-500 overflow-hidden;
+    isolation: isolate;
+    border-color: rgba(59, 130, 246, 0.4);
+    color: #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+  }
+
+  .btn-secondary::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-all duration-500 z-0 bg-gradient-to-r from-blue-400 to-indigo-600 rounded-xl;
+    transform: translateY(100%);
+  }
+
+  .btn-secondary:hover::before {
+    @apply opacity-100;
+    transform: translateY(0);
+  }
+
   .btn-secondary:hover {
-    background: rgba(0, 245, 255, 0.1);
-    border-color: rgba(0, 245, 255, 0.7);
-    box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+    @apply border-transparent text-white;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
     transform: translateY(-2px);
   }
 
   /* Section heading */
   .section-badge {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-widest mb-6;
-    background: rgba(0, 245, 255, 0.08);
-    border: 1px solid rgba(0, 245, 255, 0.2);
-    color: #00f5ff;
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
   }
 
   /* Animated grid background (Safe Mode: Disabled) */
@@ -135,19 +160,105 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     color: #e2e8f0;
   }
+
   .form-input::placeholder {
     color: rgba(255, 255, 255, 0.3);
   }
+
   .form-input:focus {
-    border-color: rgba(0, 245, 255, 0.4);
-    background: rgba(0, 245, 255, 0.04);
-    box-shadow: 0 0 0 3px rgba(0, 245, 255, 0.08), 0 0 20px rgba(0, 245, 255, 0.08);
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(59, 130, 246, 0.04);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.08), 0 0 20px rgba(59, 130, 246, 0.08);
   }
 
   /* Star dot */
-  .dot-cyan {
-    @apply w-1.5 h-1.5 rounded-full bg-cyan-400 inline-block;
-    box-shadow: 0 0 8px #00f5ff;
+  .dot-blue {
+    @apply w-1.5 h-1.5 rounded-full bg-blue-400 inline-block;
+    box-shadow: 0 0 8px #3b82f6;
+  }
+
+  /* Turbulent Electric Border Effect (Refined) */
+  .electric-hover {
+    @apply relative transition-all duration-500 ease-out;
+    --electric-color: #3b82f6;
+    --electric-glow: #7b2ff7;
+  }
+
+  /* The actual distorted border element */
+  .electric-hover::before {
+    content: '';
+    position: absolute;
+    /* Use a larger negative inset to ensure it's not clipped and doesn't hide behind the card */
+    inset: -6px;
+    @apply opacity-0 transition-opacity duration-300 rounded-[24px] pointer-events-none;
+    border: 2px solid var(--electric-color);
+    filter: url(#turbulent-displace) brightness(2.5) drop-shadow(0 0 8px var(--electric-color));
+    z-index: 20; /* Stays above background to prevent "going behind" */
+  }
+
+  /* Outer glow layers */
+  .electric-hover::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    @apply opacity-0 transition-opacity duration-500 rounded-[28px] pointer-events-none;
+    background: radial-gradient(circle at center, var(--electric-color) 0%, transparent 70%);
+    filter: blur(20px);
+    opacity: 0;
+    z-index: 0;
+  }
+
+  .electric-hover:hover::before {
+    @apply opacity-100;
+  }
+
+  .electric-hover:hover::after {
+    opacity: 0.15;
+  }
+
+  /* Additional intense glow layer */
+  .electric-hover .glow-intense {
+    position: absolute;
+    inset: -6px;
+    @apply opacity-0 transition-opacity duration-300 rounded-[24px] pointer-events-none;
+    border: 1.5px solid #fff;
+    filter: blur(1px) url(#turbulent-displace);
+    z-index: 21;
+    mix-blend-mode: overlay;
+  }
+
+  .electric-hover:hover .glow-intense {
+    @apply opacity-100;
+    animation: lightning-flicker 0.1s infinite alternate;
+  }
+
+  .electric-inner {
+    @apply h-full w-full rounded-[inherit] z-10 relative overflow-hidden backdrop-blur-xl;
+    background: rgba(5, 8, 22, 0.7); /* More glassy/transparent */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    isolation: isolate;
+  }
+
+  /* Shine sweep effect */
+  .electric-inner::before {
+    content: '';
+    @apply absolute inset-0 -translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    z-index: 5;
+  }
+
+  .electric-hover:hover .electric-inner::before {
+    @apply translate-x-full;
+  }
+
+  @keyframes lightning-flicker {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.02); }
   }
 }
 
@@ -159,6 +270,15 @@
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient-x 4s ease infinite;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
 }
 

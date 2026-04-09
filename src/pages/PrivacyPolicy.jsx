@@ -40,21 +40,18 @@ export default function PrivacyPolicy() {
                 <img
                   src={siteConfig.logoUrl.startsWith('http') || siteConfig.logoUrl.startsWith('/') ? siteConfig.logoUrl : '/' + siteConfig.logoUrl}
                   alt={siteConfig.siteName}
-                  className="h-8 w-auto object-contain transition-transform group-hover:scale-110"
+                  className="h-14 w-auto object-contain transition-transform group-hover:scale-105"
                 />
               ) : (
-                <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
-                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
+                <div className="relative w-12 h-12 transition-transform group-hover:scale-110">
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-90 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-purple-600 opacity-40 blur-md group-hover:blur-lg transition-all" />
                   <div className="relative flex items-center justify-center h-full">
-                    <span className="text-space font-black text-sm leading-none select-none">D</span>
+                    <span className="text-space font-black text-lg leading-none select-none">Q</span>
                   </div>
                 </div>
               )}
             </div>
-            <span className="font-bold text-lg sm:text-xl tracking-tight block">
-              Qibla<span className="text-orange-500">X</span>
-            </span>
           </Link>
           <div className="w-20" />
         </div>
@@ -74,7 +71,7 @@ export default function PrivacyPolicy() {
             <section>
               <h2 className="text-xl font-bold text-white mb-4">1. Introduction</h2>
               <p>
-                At QiblaX, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
+                At our company, we respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
               </p>
             </section>
 

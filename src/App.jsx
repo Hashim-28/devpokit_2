@@ -49,6 +49,18 @@ function App() {
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/cookies" element={<CookiePolicy />} />
       </Routes>
+
+      {/* SVG Filters for Effects */}
+      <svg style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}>
+        <defs>
+          <filter id="turbulent-displace">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="3" result="noise">
+              <animate attributeName="seed" from="1" to="1000" dur="0.25s" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="12" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+      </svg>
     </div>
   )
 }
