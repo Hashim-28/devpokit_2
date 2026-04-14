@@ -17,12 +17,12 @@ export default function ProjectCard({ project }) {
         onMouseLeave={() => setHovered(false)}
       >
         {/* Image */}
-        <div className="aspect-[4/3] overflow-hidden bg-space-light">
+        <div className="aspect-[4/3] overflow-hidden bg-space-light/50 flex items-center justify-center p-2">
           <motion.img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
-            animate={{ scale: hovered ? 1.08 : 1 }}
+            className="w-full h-full object-contain"
+            animate={{ scale: hovered ? 1.05 : 1 }}
             transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
             loading="lazy"
           />

@@ -82,15 +82,17 @@ export default function Services() {
                 />
 
                 <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 p-3 overflow-hidden"
                   style={{
                     background: `${service.color}12`,
                     border: `1px solid ${service.color}25`,
                   }}
                 >
-                  <span className="relative z-10 drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]">
-                    {service.icon}
-                  </span>
+                  <img
+                    src={service.icon}
+                    alt={service.title}
+                    className="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]"
+                  />
                 </div>
 
                 <h3 className="text-xl font-bold mb-4 group-hover:text-white transition-colors">

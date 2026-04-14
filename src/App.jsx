@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import HeroSection from './components/Hero/HeroSection'
 import Services from './components/Services'
@@ -10,6 +11,7 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import BackgroundParticles from './components/BackgroundParticles'
+import SplashScreen from './components/SplashScreen'
 import ProjectDetail from './pages/ProjectDetail'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
@@ -36,10 +38,15 @@ function HomePage() {
 
 // ── Root component with routing ──────────────────────────────
 function App() {
+  const [loading, setLoading] = useState(true)
+
   return (
     <div className="relative min-h-screen bg-space text-white overflow-x-hidden">
+      <AnimatePresence mode="wait">
+        {loading && <SplashScreen key="splash" finishLoading={() => setLoading(false)} />}
+      </AnimatePresence>
+
       <BackgroundParticles />
-      {/* Grid background overlay (Safe Mode: Hidden via CSS) */}
       <div className="fixed inset-0 grid-bg opacity-100 pointer-events-none z-0" />
 
       <Routes>
@@ -50,7 +57,6 @@ function App() {
         <Route path="/cookies" element={<CookiePolicy />} />
       </Routes>
 
-      {/* SVG Filters for Effects */}
       <svg style={{ visibility: 'hidden', position: 'absolute', width: 0, height: 0 }}>
         <defs>
           <filter id="turbulent-displace">
