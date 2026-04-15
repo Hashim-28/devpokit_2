@@ -1,7 +1,9 @@
-import { Suspense } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { Suspense, useState, useEffect } from 'react'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import HeroScene from './HeroScene'
 import siteConfig from '../../data/siteConfig'
+
+const rotatingWords = ['Products', 'Solutions', 'Experiences', 'Platforms']
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -20,6 +22,15 @@ export default function HeroSection() {
   const { techBadges, stats, description } = siteConfig
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 150])
+
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % rotatingWords.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section
@@ -70,21 +81,34 @@ export default function HeroSection() {
             {/* Headline */}
             <motion.h1
               variants={itemVariants}
-              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6"
+              className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] sm:leading-[1.05] tracking-tight mb-6"
             >
               We Build
               <br />
-              <span className="gradient-text">Digital</span>
-              <br />
-              Products
-              <br />
+              <div className="flex flex-wrap items-center gap-x-4">
+                <span className="gradient-text">Digital</span>
+                <div className="relative h-[1.2em] min-w-[180px] sm:min-w-[480px] flex items-center">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={rotatingWords[index]}
+                      initial={{ opacity: 0, filter: 'blur(20px)', scale: 0.8 }}
+                      animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
+                      exit={{ opacity: 0, filter: 'blur(20px)', scale: 1.2 }}
+                      transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
+                      className="absolute left-0 inline-block bg-gradient-to-r from-[#F97316] to-[#ff8c3a] bg-clip-text text-transparent pb-2"
+                    >
+                      {rotatingWords[index]}
+                    </motion.span>
+                  </AnimatePresence>
+                </div>
+              </div>
               <span className="text-white/80">That Matter.</span>
             </motion.h1>
 
             {/* Subheading */}
             <motion.p
               variants={itemVariants}
-              className="text-lg sm:text-xl text-white/55 leading-relaxed mb-10 max-w-xl font-light"
+              className="text-lg sm:text-xl text-white/55 leading-relaxed mb-10 max-w-xl font-light text-justify"
             >
               {description}
             </motion.p>
